@@ -1,0 +1,15 @@
+:root {
+  --color-fondo: #00050d;
+  --color-hoverHeader: #191e25;
+  --color-Textos: #ffffff;
+  --color-hoverTextos: #aaaaaa;
+  --color-primeAzul: #1a98ff;
+  --color-linksAzules: #90dffe;
+  --color-botonForm: #ffd814;
+  --color-hoverBotonForm: #eec911;
+  --color-linksForm: #c45500;
+}
+
+body {
+  background-color: var(--color-fondo);
+}
