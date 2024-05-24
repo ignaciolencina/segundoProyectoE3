@@ -13,3 +13,42 @@
 body {
   background-color: var(--color-fondo);
 }
+
+header {
+  .navbar-inicio {
+    background-color: var(--color-fondo);
+  }
+
+  .navbar-brand {
+    color: var(--color-Textos);
+  }
+
+  .navbar-toggler {
+    color: var(--color-Textos);
+  }
+
+  .logo-navbar {
+    width: 96px;
+  }
+
+  .boton-usuario {
+    background-color: var(--color-fondo);
+    img {
+      width: 30px;
+    }
+  }
+
+  .boton-busqueda {
+    color: var(--color-Textos);
+    background-color: transparent;
+    border: none;
+  }
+
+  .menu-desplegable {
+    background-color: var(--color-fondo);
+    color: var(--color-Textos);
+    a {
+      color: var(--color-Textos);
+    }
+  }
+}
