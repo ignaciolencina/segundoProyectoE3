@@ -27,6 +27,7 @@
 
     <!-- Link a CCS Propio -->
     <link rel="stylesheet" href="css/commons.css" />
+    <link rel="stylesheet" href="css/inicio.css" />
   </head>
   <body>
     <header>
@@ -61,7 +62,7 @@
             aria-controls="offcanvasLogin"
             aria-label="Toggle navigation"
           >
-            <img src="./assets/Usuario sin Imagen.png" alt="Usuario">
+            <img src="./assets/Usuario sin Imagen.png" alt="Usuario" />
           </button>
           <!-- Parametros boton de Menú -->
           <article
@@ -108,7 +109,9 @@
             aria-labelledby="offcanvasLoginLabel"
           >
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasLoginLabel">Mi cuenta</h5>
+              <h5 class="offcanvas-title" id="offcanvasLoginLabel">
+                Mi cuenta
+              </h5>
               <button
                 type="button"
                 class="btn-close btn-close-white"
@@ -136,5 +139,26 @@
         </section>
       </nav>
     </header>
+    <main>
+      <section class="pelicula-destacada">
+        <img
+          class="img-destacada"
+          src="./assets/Banner Interstellar.jpg"
+          alt="Pelicula destacada"
+        />
+      </section>
+      <section class="container-fluid seccion-categorias mt-3">
+        <h3><span class="palabra-prime">Prime </span>Categorías</h3>
+
+        <div class="pelicula-inicio">
+          <img
+            src="./assets/The good doctor.jpg"
+            alt="The Good Doctor"
+            class="card-image"
+          />
+        </div>
+      </section>
+    </main>
+    <footer></footer>
   </body>
 </html>

@@ -52,3 +52,7 @@ header {
     }
   }
 }
+
+.palabra-prime{
+    color: var(--color-primeAzul);
+}

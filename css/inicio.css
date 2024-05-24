@@ -1,0 +1,31 @@
+.pelicula-destacada {
+    height: 200px;
+  img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.seccion-categorias{
+    color: var(--color-Textos);
+}
+
+/* Card extraida de blackbox */
+
+.pelicula-inicio {
+    width: 350px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  
