@@ -1,5 +1,5 @@
-export const obtenerContactosDeLS = () => {
-    return ordenarLista(JSON.parse(localStorage.getItem('contactos')) || []);
+export const obtenerPeliculaDeLS = () => {
+    return ordenarLista(JSON.parse(localStorage.getItem('peliculas')) || []);
   };
   
   export const estaLogueado = () => {

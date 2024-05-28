@@ -1,57 +1,57 @@
-import { obtenerContactosDeLS } from '../utils.js';
-import { Contacto } from './Contacto.js';
-import { agregarContactoALS, cargarTabla } from './utils.js';
+import { obtenerPeliculaDeLS } from '../utils.js';
+import { Pelicula} from './Pelicula.js';
+import { agregarPeliculaALS, cargarTabla } from './utils.js';
 
-export const agregarContacto = (nombre, categorias, portada, descripcion) => {
-  const contacto = new Contacto(nombre, categorias, portada, descripcion);
+export const agregarPelicula = (nombre,  portada, descripcion) => {
+  const pelicula = new Pelicula(nombre,  portada, descripcion);
 
-  agregarContactoALS(contacto);
+  agregarPeliculaALS(pelicula);
 };
 
-export const editarContacto = (nombre, categorias, portada, descripcion) => {
+export const editarPelicula = (nombre,  portada, descripcion) => {
   // 1. Traer los datos necesarios
-  const contactos = obtenerContactosDeLS();
-  const codigoContacto = sessionStorage.getItem('codigoContacto');
+  const pelicula = obtenerPeliculaDeLS();
+  const codigoPelicula = sessionStorage.getItem('codigoPelicula');
 
   // 2. Encontrar la posicion del contacto a editar
-  const posicionContacto = contactos.findIndex((contacto) => {
-    return contacto.codigo === codigoContacto;
+  const posicionPelicula = pelicula.findIndex((pelicula) => {
+    return pelicula.codigo === codigoPelicula;
   });
 
-  if (posicionContacto === -1) {
-    alert('El contacto no se encontró');
-    sessionStorage.removeItem('codigoContacto');
+  if (posicionPelicula === -1) {
+    alert('La Película/Serie no se encontró');
+    sessionStorage.removeItem('codigoPelicula');
     return;
   }
 
   // 3. Crear el nuevo objeto contacto
-  const nuevoContacto = new Contacto(nombre, categorias, portada, descripcion);
+  const nuevoPelicula = new Pelicula(nombre,  portada, descripcion);
 
   // 4. Editar la posicion del contacto existente por el nuevo
-  contactos.splice(posicionContacto, 1, nuevoContacto);
+  pelicula.splice(posicionPelicula, 1, nuevoPelicula);
   // contactos[posicionContacto] = nuevoContacto;
 
   // 5. Actualizar LS
-  localStorage.setItem('contactos', JSON.stringify(contactos));
+  localStorage.setItem('pelicula', JSON.stringify(pelicula));
 
   // 6. Eliminar el código de SS
-  sessionStorage.removeItem('codigoContacto');
+  sessionStorage.removeItem('codigoPelicula');
 
   // 7. Esconder alert
-  const $alert = document.getElementById('alert-edicion-contacto');
+  const $alert = document.getElementById('alert-edicion-pelicula');
   $alert.classList.add('d-none');
 
   // 8. Mostrar boton
-  const $button = document.getElementById('button-cancelar');
+  const $button = document.getElementById('btn-cancelar');
   $button.classList.add('d-none');
 };
 
-export const eliminarContacto = (idContacto, nombreContacto) => {
+export const eliminarPelicula = (idPelicula, nombrePelicula) => {
   // 1. CONFIRMAR que se desea eliminar el contacto
   swal
     .fire({
       title: 'Atención',
-      text: `¿Estás seguro que deseas eliminar el contacto de ${nombreContacto}? Esta acción es irreversible.`,
+      text: `¿Estás seguro que deseas eliminar ${nombrePelicula}? Esta acción es irreversible.`,
       icon: 'warning',
       showConfirmButton: true,
       showCancelButton: true,
@@ -61,15 +61,15 @@ export const eliminarContacto = (idContacto, nombreContacto) => {
     .then((result) => {
       if (result.isConfirmed) {
         // 2. Obtener el listado de contactos
-        const contactos = obtenerContactosDeLS();
+        const pelicula = obtenerPeliculaDeLS();
 
         // 3. Filtrar esa lista para eliminar el contacto con id indicado
-        const nuevosContactos = contactos.filter((contacto) => {
-          return contacto.codigo !== idContacto;
+        const  nuevosPeliculas = pelicula.filter((pelicula) => {
+          return pelicula.codigo !== idPelicula;
         });
 
         // 4. Actualizar lista en LS
-        localStorage.setItem('contactos', JSON.stringify(nuevosContactos));
+        localStorage.setItem('peliculas', JSON.stringify(nuevosPeliculas));
 
         // 5. Actualizar la tabla
         cargarTabla();
@@ -77,11 +77,11 @@ export const eliminarContacto = (idContacto, nombreContacto) => {
         // 6. Notificar al usuario del exito
         swal.fire({
           title: 'Exito',
-          text: `Contacto ${nombreContacto} eliminado correctamente`,
+          text: ` ${nombrePelicula} eliminado correctamente`,
           icon: 'success',
           showConfirmButton: true,
           showCancelButton: false,
-          confirmButtonText: 'Tremen2',
+          confirmButtonText: 'Tarea Completada',
         });
       }
     });

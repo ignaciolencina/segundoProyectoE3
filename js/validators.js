@@ -15,7 +15,7 @@ export const validateName = ($field) => {
     }
   
     // Letras
-    const regex = /^[a-zA-ZÁÉÍÓÚáéíóúÜüÑñ\s]+$/;
+    const regex = /^[a-zA-ZÁÉÍÓÚáéíóúÜüÑñ0-9\s]+$/;
     if (!regex.test($field.value)) {
       $field.classList.add('is-invalid');
       $field.classList.remove('is-valid');
@@ -28,55 +28,10 @@ export const validateName = ($field) => {
   };
   
   // Retorna un booleano, siendo true cuando el campo está correcto
-  export const validateNumber = (field) => {
-    // No sea vacio, null, etcs
-    if (!field || !field.value.trim()) {
-      field.classList.add('is-invalid');
-      field.classList.remove('is-valid');
-      return false;
-    }
-  
-    // Letras
-    const regex = /^\d{8}$/;
-    if (!regex.test(field.value)) {
-      field.classList.add('is-invalid');
-      field.classList.remove('is-valid');
-      return false;
-    }
-  
-    field.classList.remove('is-invalid');
-    field.classList.add('is-valid');
-    return true;
-  };
+
   
   // Retorna un booleano, siendo true cuando el campo está correcto
-  export const validateEmail = ($field, showValidTick = true) => {
-    // No sea vacio, null, etcs
-    if (!$field || !$field.value.trim()) {
-      $field.classList.add('is-invalid');
-      $field.classList.remove('is-valid');
-      return false;
-    }
-  
-    // Longitud
-    if ($field.value.trim().length < 3 || $field.value.trim().length > 100) {
-      $field.classList.add('is-invalid');
-      $field.classList.remove('is-valid');
-      return false;
-    }
-  
-    // Formato mail
-    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    if (!regex.test($field.value)) {
-      $field.classList.add('is-invalid');
-      $field.classList.remove('is-valid');
-      return false;
-    }
-  
-    $field.classList.remove('is-invalid');
-    if(showValidTick) $field.classList.add('is-valid');
-    return true;
-  };
+
   
   // Retorna un booleano, siendo true cuando el campo está correcto
   export const validateUrl = ($field) => {
@@ -108,7 +63,7 @@ export const validateName = ($field) => {
     return true;
   };
   
-  export const validatePassword = ($field) => {
+ /* export const validatePassword = ($field) => {
     // No sea vacio, null, etcs
     if (!$field || !$field.value.trim()) {
       $field.classList.add('is-invalid');
@@ -131,4 +86,4 @@ export const validateName = ($field) => {
   
     $field.classList.remove('is-invalid');
     return true;
-  };
+  };*/

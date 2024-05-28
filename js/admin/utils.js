@@ -1,15 +1,15 @@
-import { obtenerContactosDeLS } from '../utils.js';
-import { eliminarContacto } from './abm.js';
+import { obtenerPeliculaDeLS } from '../utils.js';
+import { eliminarPelicula } from './abm.js';
 
-export const agregarContactoALS = (contacto) => {
+export const agregarPeliculaALS = (pelicula) => {
   // 1. Traemos desde LS lo que haya guardado
-  const contactos = obtenerContactosDeLS();
+  const peliculas = obtenerPeliculaDeLS();
 
   // 2. Agregamos a lo que estaba guardado, lo nuevo
-  contactos.push(contacto);
+  peliculas.push(pelicula);
 
   // 3. Actualizamos los contactos en LS con los valores nuevos
-  localStorage.setItem('contactos', JSON.stringify(contactos));
+  localStorage.setItem('peliculas', JSON.stringify(peliculas));
 };
 
 /* <tr>
@@ -31,8 +31,8 @@ export const agregarContactoALS = (contacto) => {
               </td>
             </tr> */
 
-const cargarFilaTabla = (contacto, indice) => {
-  const $tbody = document.getElementById('tbody-contactos');
+const cargarFilaTabla = (pelicula, indice) => {
+  const $tbody = document.getElementById('tbody-peliculas');
 
   const $tr = document.createElement('tr');
 
@@ -44,25 +44,25 @@ const cargarFilaTabla = (contacto, indice) => {
   // IMAGEN
   const $tdPortada = document.createElement('td');
   const $portada = document.createElement('img');
-  $portada.src = contacto.portada;
-  $portada.alt = contacto.nombre;
+  $portada.src = pelicula.portada;
+  $portada.alt = pelicula.nombre;
   $portada.classList.add('imagen-tabla');
   $tdPortada.appendChild($portada);
   $tr.appendChild($tdPortada);
 
   // NOMBRE
   const $tdNombre = document.createElement('td');
-  $tdNombre.textContent = contacto.nombre;
+  $tdNombre.textContent = pelicula.nombre;
   $tr.appendChild($tdNombre);
 
   // NUMERO
   const $tdCategorias = document.createElement('td');
-  $tdCategorias.textContent = contacto.categorias;
+  $tdCategorias.textContent = pelicula.categorias;
   $tr.appendChild($tdCategorias);
 
   // NOTAS
   const $tdDescripcion = document.createElement('td');
-  $tdDescripcion.textContent = contacto.descripcion;
+  $tdDescripcion.textContent = pelicula.descripcion;
   $tr.appendChild($tdDescripcion);
 
   // ACCIONES
@@ -74,10 +74,10 @@ const cargarFilaTabla = (contacto, indice) => {
   $btnEditar.textContent = 'Editar';
   $btnEliminar.textContent = 'Eliminar';
   $btnEditar.onclick = () => {
-    prepararEdicionContacto(contacto);
+    prepararEdicionPelicula(pelicula);
   };
   $btnEliminar.onclick = () => {
-    eliminarContacto(contacto.codigo, contacto.nombre);
+    eliminarPelicula(pelicula.codigo, pelicula.nombre);
   };
   $tdAcciones.appendChild($btnEditar);
   $tdAcciones.appendChild($btnEliminar);
@@ -88,41 +88,39 @@ const cargarFilaTabla = (contacto, indice) => {
 
 export const cargarTabla = () => {
   // 1. Recuperar los contactos
-  const contactos = obtenerContactosDeLS();
+  const peliculas = obtenerPeliculaDeLS();
 
   // 2. Vaciar la tabla de los datos anteriores
-  const $tbody = document.getElementById('tbody-contactos');
+  const $tbody = document.getElementById('tbody-peliculas');
   $tbody.innerHTML = '';
 
   // 3. Crear una fila (tr) por cada contacto
-  contactos.forEach((contacto, indice) => {
+  peliculas.forEach((pelicula, indice) => {
     // Crear fila para este elemento
-    cargarFilaTabla(contacto, indice + 1);
+    cargarFilaTabla(pelicula, indice + 1);
   });
 };
 
 // Objetivo: Cargar en el formulario estos datos
-export const prepararEdicionContacto = (contacto) => {
+export const prepararEdicionPelicula = (pelicula) => {
   // 1. Seleccionar los nodos de los inputs
   const $inputNombre = document.getElementById('input-nombre');
-  const $inputCategorias = document.getElementById('input-categorias');
   const $inputPortada = document.getElementById('input-portada');
   const $inputDescripcion = document.getElementById('input-descripcion');
 
   // 2. Cargar la info
-  $inputNombre.value = contacto.nombre;
-  $inputCategorias.value = contacto.numero;
-  $inputPortada.value = contacto.imagen;
-  $inputDescripcion .value = contacto.notas;
+  $inputNombre.value = pelicula.nombre;
+  $inputPortada.value = pelicula.portada;
+  $inputDescripcion .value = pelicula.descripcion;
 
   // 3. Guardar código
-  sessionStorage.setItem('codigoContacto', contacto.codigo);
+  sessionStorage.setItem('codigoPelicula', pelicula.codigo);
 
   // 4. Mostrar alert
-  const $alert = document.getElementById('alert-edicion-contacto');
-  const $spanContacto = document.getElementById('nombre-contacto-edicion');
+  const $alert = document.getElementById('alert-edicion-pelicula');
+  const $spanPelicula = document.getElementById('nombre-pelicula-edicion');
   $alert.classList.remove('d-none');
-  $spanContacto.textContent = contacto.nombre;
+  $spanPelicula.textContent = pelicula.nombre;
 
   // 5. Mostrar boton
   const $button = document.getElementById('button-cancelar');
@@ -136,5 +134,5 @@ export const estaEditando = () => {
   // const codigo = sessionStorage.getItem('codigoContacto');
   // if (codigo) return true;
   // return false;
-  return !!sessionStorage.getItem('codigoContacto');
+  return !!sessionStorage.getItem('codigoPelicula');
 };
