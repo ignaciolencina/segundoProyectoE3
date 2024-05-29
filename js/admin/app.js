@@ -59,8 +59,7 @@ $form.addEventListener('submit', (event) => {
 
   // B. Todo OK, conseguir valores
 
-  const nombre = $inputNombre.value;
-  
+  const nombre = $inputNombre.value;  
   const portada = $inputPortada.value;
   const descripcion = $inputDescripcion.value;
 
@@ -97,9 +96,8 @@ $form.addEventListener('submit', (event) => {
 });
 
 document.getElementById("btn-cancelar").addEventListener("click", () => {
-    document.getElementById("form-pelicula").reset(); // Restablece el formulario
-    document.getElementById("btn-cancelar").classList.add("d-none"); // Oculta el botón Cancelar
-    document.getElementById("alert-edicion-pelicula").classList.add("d-none"); // Oculta el mensaje de edición
-    document.getElementById("form-pelicula").onsubmit = agregarPelicula; // Restaura el evento de submit para agregar una película o serie
-  });
-
+  document.getElementById("form-pelicula").reset(); // Restablece el formulario
+  document.getElementById("btn-cancelar").classList.add("d-none"); // Oculta el botón Cancelar
+  document.getElementById("alert-edicion-pelicula").classList.add("d-none"); // Oculta el mensaje de edición
+  document.getElementById("form-pelicula").onsubmit = agregarPelicula; // Restaura el evento de submit para agregar una película o serie
+});

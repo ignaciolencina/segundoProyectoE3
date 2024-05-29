@@ -55,11 +55,6 @@ const cargarFilaTabla = (pelicula, indice) => {
   $tdNombre.textContent = pelicula.nombre;
   $tr.appendChild($tdNombre);
 
-  // NUMERO
-  const $tdCategorias = document.createElement('td');
-  $tdCategorias.textContent = pelicula.categorias;
-  $tr.appendChild($tdCategorias);
-
   // NOTAS
   const $tdDescripcion = document.createElement('td');
   $tdDescripcion.textContent = pelicula.descripcion;
@@ -123,7 +118,7 @@ export const prepararEdicionPelicula = (pelicula) => {
   $spanPelicula.textContent = pelicula.nombre;
 
   // 5. Mostrar boton
-  const $button = document.getElementById('button-cancelar');
+  const $button = document.getElementById('btn-cancelar');
   $button.classList.remove('d-none');
 
   // TODO: Agregar event listener al botón para deshacer la edicion de un contacto (eliminar el cod de SS, vaciar los campos, resetear las clases,esconder alert, esconder boton)

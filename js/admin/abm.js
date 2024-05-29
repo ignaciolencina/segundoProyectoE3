@@ -8,13 +8,13 @@ export const agregarPelicula = (nombre,  portada, descripcion) => {
   agregarPeliculaALS(pelicula);
 };
 
-export const editarPelicula = (nombre,  portada, descripcion) => {
+export const editarPelicula = (nombre,  portada , descripcion) => {
   // 1. Traer los datos necesarios
-  const pelicula = obtenerPeliculaDeLS();
+  const peliculas = obtenerPeliculaDeLS();
   const codigoPelicula = sessionStorage.getItem('codigoPelicula');
 
   // 2. Encontrar la posicion del contacto a editar
-  const posicionPelicula = pelicula.findIndex((pelicula) => {
+  const posicionPelicula = peliculas.findIndex((pelicula) => {
     return pelicula.codigo === codigoPelicula;
   });
 
@@ -28,11 +28,11 @@ export const editarPelicula = (nombre,  portada, descripcion) => {
   const nuevoPelicula = new Pelicula(nombre,  portada, descripcion);
 
   // 4. Editar la posicion del contacto existente por el nuevo
-  pelicula.splice(posicionPelicula, 1, nuevoPelicula);
+  peliculas.splice(posicionPelicula, 1, nuevoPelicula);
   // contactos[posicionContacto] = nuevoContacto;
 
   // 5. Actualizar LS
-  localStorage.setItem('pelicula', JSON.stringify(pelicula));
+  localStorage.setItem('peliculas', JSON.stringify(peliculas));
 
   // 6. Eliminar el código de SS
   sessionStorage.removeItem('codigoPelicula');
