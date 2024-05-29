@@ -8,7 +8,7 @@ export const validateName = ($field) => {
     }
   
     // Longitud
-    if ($field.value.trim().length < 3 || $field.value.trim().length > 25) {
+    if ($field.value.trim().length < 3 || $field.value.trim().length > 40) {
       $field.classList.add('is-invalid');
       $field.classList.remove('is-valid');
       return false;

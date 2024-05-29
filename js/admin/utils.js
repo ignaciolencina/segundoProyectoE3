@@ -31,55 +31,82 @@ export const agregarPeliculaALS = (pelicula) => {
               </td>
             </tr> */
 
-const cargarFilaTabla = (pelicula, indice) => {
-  const $tbody = document.getElementById('tbody-peliculas');
+            const cargarFilaTabla = (pelicula, indice) => {
+              const $tbody = document.getElementById('tbody-peliculas');
+          
+              const $tr = document.createElement('tr');
+              if (pelicula.destacar) {
+                  $tr.classList.add('destacar');
+              }
+          
+              const $tdIndice = document.createElement('td');
+              $tdIndice.textContent = indice;
+              $tr.appendChild($tdIndice);
+          
+              const $tdPortada = document.createElement('td');
+              const $portada = document.createElement('img');
+              $portada.src = pelicula.portada;
+              $portada.alt = pelicula.nombre;
+              $portada.classList.add('imagen-tabla');
+              $tdPortada.appendChild($portada);
+              $tr.appendChild($tdPortada);
+          
+              const $tdNombre = document.createElement('td');
+              $tdNombre.textContent = pelicula.nombre;
+              $tr.appendChild($tdNombre);
+          
+              const $tdDescripcion = document.createElement('td');
+              $tdDescripcion.textContent = pelicula.descripcion;
+              $tr.appendChild($tdDescripcion);
+              
+              const $tdPublicada = document.createElement('td');
+              const $btnPublicar = document.createElement('button');
+          
+              $btnPublicar.classList.add('btn', 'btn-sm', pelicula.publicada ? 'btn-success' : 'btn-secondary');
+              $btnPublicar.textContent = pelicula.publicada ? 'Publicado' : 'No Publicado';
+          
+              $btnPublicar.onclick = () => {
+                  togglePublicarPelicula(pelicula.codigo, $btnPublicar);
+              };
+          
+              $tdPublicada.appendChild($btnPublicar);
+              $tr.appendChild($tdPublicada);
+          
+              const $tdAcciones = document.createElement('td');
+              const $btnEditar = document.createElement('button');
+              const $btnEliminar = document.createElement('button');
+              const $btnDestacar = document.createElement('button'); // Nuevo botón destacar
+          
+              $btnEditar.classList.add('btn', 'btn-sm', 'btn-warning', 'me-2');
+              $btnEliminar.classList.add('btn', 'btn-sm', 'btn-danger', 'me-2');
+              $btnDestacar.classList.add('btn', 'btn-sm', 'btn-success'); // Clase para botón destacar
+          
+              $btnEditar.textContent = 'Editar';
+              $btnEliminar.textContent = 'Eliminar';
 
-  const $tr = document.createElement('tr');
+              const $iconoEstrella = document.createElement('i');
+              $iconoEstrella.classList.add('fa', pelicula.destacar ? 'fa-star' : 'fa-star-o');
+              $btnDestacar.appendChild($iconoEstrella);
+          
+              $btnEditar.onclick = () => {
+                  prepararEdicionPelicula(pelicula);
+              };
+              $btnEliminar.onclick = () => {
+                  eliminarPelicula(pelicula.codigo, pelicula.nombre);
+              };
+              $btnDestacar.onclick = () => {
+                toggleDestacarPelicula(pelicula.codigo, $iconoEstrella);
+            };
+          
+              $tdAcciones.appendChild($btnEditar);
+              $tdAcciones.appendChild($btnEliminar);
+              $tdAcciones.appendChild($btnDestacar); // Agregar el botón destacar
+          
+              $tr.appendChild($tdAcciones);
 
-  // INDICE
-  const $tdIndice = document.createElement('td');
-  $tdIndice.textContent = indice;
-  $tr.appendChild($tdIndice);
-
-  // IMAGEN
-  const $tdPortada = document.createElement('td');
-  const $portada = document.createElement('img');
-  $portada.src = pelicula.portada;
-  $portada.alt = pelicula.nombre;
-  $portada.classList.add('imagen-tabla');
-  $tdPortada.appendChild($portada);
-  $tr.appendChild($tdPortada);
-
-  // NOMBRE
-  const $tdNombre = document.createElement('td');
-  $tdNombre.textContent = pelicula.nombre;
-  $tr.appendChild($tdNombre);
-
-  // NOTAS
-  const $tdDescripcion = document.createElement('td');
-  $tdDescripcion.textContent = pelicula.descripcion;
-  $tr.appendChild($tdDescripcion);
-
-  // ACCIONES
-  const $tdAcciones = document.createElement('td');
-  const $btnEditar = document.createElement('button');
-  const $btnEliminar = document.createElement('button');
-  $btnEditar.classList.add('btn', 'btn-sm', 'btn-warning', 'me-2');
-  $btnEliminar.classList.add('btn', 'btn-sm', 'btn-danger');
-  $btnEditar.textContent = 'Editar';
-  $btnEliminar.textContent = 'Eliminar';
-  $btnEditar.onclick = () => {
-    prepararEdicionPelicula(pelicula);
-  };
-  $btnEliminar.onclick = () => {
-    eliminarPelicula(pelicula.codigo, pelicula.nombre);
-  };
-  $tdAcciones.appendChild($btnEditar);
-  $tdAcciones.appendChild($btnEliminar);
-  $tr.appendChild($tdAcciones);
-
-  $tbody.appendChild($tr);
-};
+              
+              $tbody.appendChild($tr);
+          };
 
 export const cargarTabla = () => {
   // 1. Recuperar los contactos
@@ -124,6 +151,39 @@ export const prepararEdicionPelicula = (pelicula) => {
   // TODO: Agregar event listener al botón para deshacer la edicion de un contacto (eliminar el cod de SS, vaciar los campos, resetear las clases,esconder alert, esconder boton)
 };
 
+const toggleDestacarPelicula = (codigo, $iconoEstrella) => {
+  const peliculas = obtenerPeliculaDeLS();
+
+  // Desmarcar cualquier otra película que esté destacada
+  peliculas.forEach(pelicula => {
+      if (pelicula.destacar) {
+          pelicula.destacar = false;
+      }
+  });
+
+  // Encontrar la película actual y marcarla como destacada
+  const pelicula = peliculas.find(pelicula => pelicula.codigo === codigo);
+  if (pelicula) {
+      pelicula.destacar = true;
+      localStorage.setItem('peliculas', JSON.stringify(peliculas));
+      cargarTabla();  // Para actualizar visualmente la tabla
+  }
+};
+
+const togglePublicarPelicula = (codigo, $btnPublicar) => {
+    const peliculas = obtenerPeliculaDeLS();
+    const pelicula = peliculas.find(pelicula => pelicula.codigo === codigo);
+    
+    if (pelicula) {
+        pelicula.publicada = !pelicula.publicada;
+        localStorage.setItem('peliculas', JSON.stringify(peliculas));
+        // Actualizar el botón de publicación
+        $btnPublicar.classList.toggle('btn-success', pelicula.publicada);
+        $btnPublicar.classList.toggle('btn-secondary', !pelicula.publicada);
+        $btnPublicar.textContent = pelicula.publicada ? 'Publicado' : 'No Publicado';
+    }
+};
+
 export const estaEditando = () => {
   // El usuario está editando cuando existe un "codigoContacto" en sessionStorage
   // const codigo = sessionStorage.getItem('codigoContacto');
@@ -131,3 +191,4 @@ export const estaEditando = () => {
   // return false;
   return !!sessionStorage.getItem('codigoPelicula');
 };
+

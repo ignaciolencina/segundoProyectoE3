@@ -129,32 +129,45 @@
                 Atención: estás editando la pelicula/serie <span id="nombre-pelicula-edicion"></span>
             </article>
             <form id="form-pelicula">
-                <fieldset class="mb-3">
-                    <label for="input-nombre" class="form-label text-white">Nombre</label>
-                    <input type="text" id="input-nombre" class="form-control" placeholder="The Boys" />
-                    <div class="invalid-feedback">
-                        <span class="badge text-bg-danger">Ingrese un nombre válido</span>
-                    </div>
-                </fieldset>
-                <fieldset class="mb-3">
-                    <label for="input-portada" class="form-label text-white">Portada</label>
-                    <input type="text" id="input-portada" class="form-control" placeholder="https://google.com" />
-                    <div class="invalid-feedback">
-                        <span class="badge text-bg-danger">Ingrese un enlace válido</span>
-                    </div>
-                </fieldset>
-                <fieldset class="mb-3">
-                    <label for="input-descripcion" class="form-label text-white">Descripción</label>
-                    <textarea id="input-descripcion" class="form-control"></textarea>
-                    <div class="invalid-feedback">
-                        <span class="badge text-bg-danger">Ingrese una descripción válida</span>
-                    </div>
-                </fieldset>
-                <div class="text-end">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <button id="btn-cancelar" type="button" class="btn btn-secondary d-none">Cancelar edición</button>
-                </div>
-            </form>
+              <fieldset class="mb-3">
+                  <label for="input-tipo" class="form-label text-white">Tipo</label>
+                  <select id="input-tipo" class="form-control">
+                      <option value="pelicula">Película</option>
+                      <option value="serie">Serie</option>
+                  </select>
+              </fieldset>
+              <fieldset class="mb-3">
+                  <label for="input-nombre" class="form-label text-white">Nombre</label>
+                  <input type="text" id="input-nombre" class="form-control" placeholder="The Boys" />
+                  <div class="invalid-feedback">
+                      <span class="badge text-bg-danger">Ingrese un nombre válido</span>
+                  </div>
+              </fieldset>
+              <fieldset class="mb-3">
+                <label for="input-categoria" class="form-label text-white">Categoría</label>
+                <select id="select-categorias" class="form-control">
+                    <!-- Las categorías se cargarán dinámicamente desde otra página -->
+                </select>
+            </fieldset>
+              <fieldset class="mb-3">
+                  <label for="input-portada" class="form-label text-white">Portada</label>
+                  <input type="text" id="input-portada" class="form-control" placeholder="https://google.com" />
+                  <div class="invalid-feedback">
+                      <span class="badge text-bg-danger">Ingrese un enlace válido</span>
+                  </div>
+              </fieldset>
+              <fieldset class="mb-3">
+                  <label for="input-descripcion" class="form-label text-white">Descripción</label>
+                  <textarea id="input-descripcion" class="form-control"></textarea>
+                  <div class="invalid-feedback">
+                      <span class="badge text-bg-danger">Ingrese una descripción válida</span>
+                  </div>
+              </fieldset>
+              <div class="text-end">
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button id="btn-cancelar" type="button" class="btn btn-secondary d-none">Cancelar edición</button>
+              </div>
+          </form>
         </section>
         <section class="table-responsive mt-4 ">
             <table class="table table-dark table-hover">
@@ -163,11 +176,14 @@
                         <th>#</th>
                         <th>Portada</th>
                         <th>Nombre</th>
-                        <th>Descripción</th>
+                        <th>Descripción</th>                        
+                        <th>Está Publicada</th>
                         <th></th>
                     </tr>
                 </thead>
+                
                 <tbody id="tbody-peliculas"></tbody>
+                
             </table>
         </section>
     </main>
