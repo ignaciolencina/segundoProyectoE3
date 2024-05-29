@@ -25,9 +25,12 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Link a sweet alerts-->
+
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+    
     <!-- Link a CCS Propio c -->
     <link rel="stylesheet" href="../css/commons.css" />
-    <link rel="stylesheet" href="../css/ayuda.css" />
   </head>
   <body>
     <header>
@@ -150,7 +153,9 @@
       <section class="bg-secondary p-3 rounded text-light">
         <form id="form-ayuda">
           <fieldset class="mb-2">
-            <label for="input-nombre-formulario" class="form-label">Nombre completo</label>
+            <label for="input-nombre-formulario" class="form-label"
+              >Nombre completo</label
+            >
             <input
               placeholder="Maria Rodriguez"
               type="text"
@@ -162,7 +167,9 @@
             </div>
           </fieldset>
           <fieldset class="mb-2">
-            <label for="input-numero-formulario" class="form-label">Teléfono</label>
+            <label for="input-numero-formulario" class="form-label"
+              >Teléfono</label
+            >
             <input
               placeholder="669 123 546"
               type="text"
@@ -186,7 +193,9 @@
             </div>
           </fieldset>
           <fieldset class="mb-2">
-            <label for="input-notas-formulario" class="form-label">Comentario</label>
+            <label for="input-notas-formulario" class="form-label"
+              >Comentario</label
+            >
             <textarea
               placeholder="Indique la razón por la que necesita ayuda"
               id="input-notas-formulario"
@@ -197,7 +206,7 @@
             </div>
           </fieldset>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-danger">Guardar</button>
+            <button type="submit" class="btn btn-primary">Enviar</button>
           </div>
         </form>
       </section>
