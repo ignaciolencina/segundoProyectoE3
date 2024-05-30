@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ayuda</title>
+    <title>Acerca De</title>
 
     <!-- Link Fontawesome -->
     <script
@@ -25,12 +25,9 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Link a sweet alerts-->
-
-    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
-    
     <!-- Link a CCS Propio c -->
     <link rel="stylesheet" href="../css/commons.css" />
+    <link rel="stylesheet" href="../css/acerdaDe.css" />
   </head>
   <body>
     <header>
@@ -125,7 +122,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Ayuda</a>
+                  <a class="nav-link" href="../pages/ayuda.html">Ayuda</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="../pages/error404.html">Dispositivos compatibles</a>
@@ -133,10 +130,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="../pages/error404.html">Cuenta y configuracion</a>
                 </li>
+                </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/acercaDe.html"
-                    >Sobre nosotros</a
-                  >
+                  <a class="nav-link" href="../pages/acercaDe.html">Sobre nosotros</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="../pages/error404.html">Cerrar sesión</a>
@@ -147,69 +143,8 @@
         </section>
       </nav>
     </header>
-    <main class="container my-4 mt-5">
-      <h3 class="pt-3 text-light">¿Necesitas ayuda?</h3>
-      <hr />
-      <section class="bg-secondary p-3 rounded text-light">
-        <form id="form-ayuda">
-          <fieldset class="mb-2">
-            <label for="input-nombre-formulario" class="form-label"
-              >Nombre completo</label
-            >
-            <input
-              placeholder="Maria Rodriguez"
-              type="text"
-              id="input-nombre-formulario"
-              class="form-control"
-            />
-            <div class="invalid-feedback">
-              <span class="badge text-bg-danger">Ingrese un nombre valido</span>
-            </div>
-          </fieldset>
-          <fieldset class="mb-2">
-            <label for="input-numero-formulario" class="form-label"
-              >Teléfono</label
-            >
-            <input
-              placeholder="669 123 546"
-              type="text"
-              id="input-numero-formulario"
-              class="form-control"
-            />
-            <div class="invalid-feedback">
-              <span class="badge text-bg-danger">Ingrese un número valido</span>
-            </div>
-          </fieldset>
-          <fieldset class="mb-2">
-            <label for="input-email-formulario" class="form-label">Email</label>
-            <input
-              placeholder="mrodriguez@gmail.com"
-              type="text"
-              id="input-email-formulario"
-              class="form-control"
-            />
-            <div class="invalid-feedback">
-              <span class="badge text-bg-danger">Ingrese un email valido</span>
-            </div>
-          </fieldset>
-          <fieldset class="mb-2">
-            <label for="input-notas-formulario" class="form-label"
-              >Comentario</label
-            >
-            <textarea
-              placeholder="Indique la razón por la que necesita ayuda"
-              id="input-notas-formulario"
-              class="form-control"
-            ></textarea>
-            <div class="invalid-feedback">
-              <span class="badge text-bg-danger">Ingrese un comentario</span>
-            </div>
-          </fieldset>
-          <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </div>
-        </form>
-      </section>
+    <main>
+        
     </main>
     <footer>
       <section class="container-fluid links-footer mt-5">
@@ -224,17 +159,16 @@
         <article class="row text-center">
           <div class="col-12">
             <a class="me-2" href="../pages/error404.html">Términos y Aviso de privacidad</a>
-            <a href="../pages/ayuda.html">Envíanos tus comentarios</a>
+            <a href="../pages/error404.html">Envíanos tus comentarios</a>
           </div>
         </article>
         <article class="row text-center">
           <div class="col-12">
-            <a href="#">Ayuda</a>
+            <a href="../pages/ayuda.html">Ayuda</a>
             <p class="text-light d-inline-block">&copy; 1996 - 2024, Amazon.com, Inc. o sus filiales</p>
           </div>
         </article>
       </section>
     </footer>
-    <script type="module" src="../js/ayuda/app.js"></script>
   </body>
 </html>
