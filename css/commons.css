@@ -52,3 +52,16 @@ header {
     }
   }
 }
+
+
+
+.links-footer {
+  font-size: 13px;
+  img {
+    width: 130px;
+  }
+  a {
+    text-decoration: none;
+    color: var(--color-linksAzules);
+  }
+}
