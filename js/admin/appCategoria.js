@@ -72,9 +72,15 @@ $form.addEventListener('submit', (event) => {
   });
 });
 
+<<<<<<< HEAD
 document.getElementById("btn-cancelar").addEventListener("click", () => {
   document.getElementById("form-categoria").reset(); // Restablece el formulario
   document.getElementById("btn-cancelar").classList.add("d-none"); // Oculta el botón Cancelar
+=======
+document.getElementById("btn-cancelar-cat").addEventListener("click", () => {
+  document.getElementById("form-categoria").reset(); // Restablece el formulario
+  document.getElementById("btn-cancelar-cat").classList.add("d-none"); // Oculta el botón Cancelar
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
   document.getElementById("alert-edicion-categoria").classList.add("d-none"); // Oculta el mensaje de edición
   document.getElementById("form-categoria").onsubmit = agregarCategoria; // Restaura el evento de submit para agregar una película o serie
 });

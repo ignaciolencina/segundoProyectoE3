@@ -36,8 +36,13 @@ export const agregarCategoriaALS = (categoria) => {
           
               const $tdIndice = document.createElement('td');
               $tdIndice.textContent = indice;
+<<<<<<< HEAD
               $tr.appendChild($tdIndice);
           
+=======
+              $tr.appendChild($tdIndice);   
+              
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
               const $tdPortada = document.createElement('td');
               const $portada = document.createElement('img');
               $portada.src = pelicula.portada;
@@ -45,10 +50,27 @@ export const agregarCategoriaALS = (categoria) => {
               $portada.classList.add('imagen-tabla');
               $tdPortada.appendChild($portada);
               $tr.appendChild($tdPortada);
+<<<<<<< HEAD
+=======
+
+
+              const $tdTipo = document.createElement('td');
+              $tdTipo.textContent = pelicula.tipo;
+              $tr.appendChild($tdTipo);
+
+              const $tdCategoria = document.createElement('td');
+              $tdCategoria.textContent = pelicula.categoria;
+              $tr.appendChild($tdCategoria);
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
           
               const $tdNombre = document.createElement('td');
               $tdNombre.textContent = pelicula.nombre;
               $tr.appendChild($tdNombre);
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
           
               const $tdDescripcion = document.createElement('td');
               $tdDescripcion.textContent = pelicula.descripcion;
@@ -175,11 +197,21 @@ export const cargarTablaCat = () => {
 // Objetivo: Cargar en el formulario estos datos
 export const prepararEdicionPelicula = (pelicula) => {
   // 1. Seleccionar los nodos de los inputs
+<<<<<<< HEAD
+=======
+  const $inputTipo = document.getElementById('input-tipo');
+  const $inputCategoria = document.getElementById('select-categorias');
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
   const $inputNombre = document.getElementById('input-nombre');
   const $inputPortada = document.getElementById('input-portada');
   const $inputDescripcion = document.getElementById('input-descripcion');
 
   // 2. Cargar la info
+<<<<<<< HEAD
+=======
+  $inputTipo.value = pelicula.tipo;
+  $inputCategoria.value = pelicula.categoria;
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
   $inputNombre.value = pelicula.nombre;
   $inputPortada.value = pelicula.portada;
   $inputDescripcion .value = pelicula.descripcion;
@@ -215,7 +247,11 @@ export const prepararEdicionCategoria = (categoria) => {
   $spanCategoria.textContent = categoria.nombre;
 
   // 5. Mostrar boton
+<<<<<<< HEAD
   const $button = document.getElementById('btn-cancelar');
+=======
+  const $button = document.getElementById('btn-cancelar-cat');
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
   $button.classList.remove('d-none');
 
   // TODO: Agregar event listener al botón para deshacer la edicion de un contacto (eliminar el cod de SS, vaciar los campos, resetear las clases,esconder alert, esconder boton)
@@ -255,18 +291,26 @@ const togglePublicarPelicula = (codigo, $btnPublicar) => {
 };
 
 export const estaEditando = () => {
+<<<<<<< HEAD
   // El usuario está editando cuando existe un "codigoContacto" en sessionStorage
   // const codigo = sessionStorage.getItem('codigoContacto');
   // if (codigo) return true;
   // return false;
+=======
+
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
   return !!sessionStorage.getItem('codigoPelicula');
 };
 
 export const estaEditandoCat = () => {
+<<<<<<< HEAD
   // El usuario está editando cuando existe un "codigoContacto" en sessionStorage
   // const codigo = sessionStorage.getItem('codigoContacto');
   // if (codigo) return true;
   // return false;
+=======
+
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
   return !!sessionStorage.getItem('codigoCategoria');
 };
 

@@ -2,13 +2,22 @@ import { obtenerPeliculaDeLS } from '../utils.js';
 import { Pelicula} from './Pelicula.js';
 import { agregarPeliculaALS, cargarTabla } from './utils.js';
 
+<<<<<<< HEAD
 export const agregarPelicula = (nombre,  portada, descripcion) => {
   const pelicula = new Pelicula(nombre,  portada, descripcion);
+=======
+export const agregarPelicula = (tipo, categoria, nombre,  portada, descripcion) => {
+  const pelicula = new Pelicula(tipo, categoria, nombre,  portada, descripcion);
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
 
   agregarPeliculaALS(pelicula);
 };
 
+<<<<<<< HEAD
 export const editarPelicula = (nombre,  portada , descripcion) => {
+=======
+export const editarPelicula = (tipo, categoria, nombre,  portada , descripcion) => {
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
   // 1. Traer los datos necesarios
   const peliculas = obtenerPeliculaDeLS();
   const codigoPelicula = sessionStorage.getItem('codigoPelicula');
@@ -25,7 +34,11 @@ export const editarPelicula = (nombre,  portada , descripcion) => {
   }
 
   // 3. Crear el nuevo objeto contacto
+<<<<<<< HEAD
   const nuevoPelicula = new Pelicula(nombre,  portada, descripcion);
+=======
+  const nuevoPelicula = new Pelicula(tipo, categoria, nombre,  portada, descripcion);
+>>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
 
   // 4. Editar la posicion del contacto existente por el nuevo
   peliculas.splice(posicionPelicula, 1, nuevoPelicula);
