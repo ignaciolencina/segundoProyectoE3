@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inicio</title>
+    <title>Ayuda</title>
 
     <!-- Link Fontawesome -->
     <script
@@ -25,13 +25,16 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Link a sweet alerts-->
+
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+    
     <!-- Link a CCS Propio c -->
-    <link rel="stylesheet" href="css/commons.css" />
-    <link rel="stylesheet" href="css/inicio.css" />
+    <link rel="stylesheet" href="../css/commons.css" />
   </head>
   <body>
     <header>
-      <nav class="navbar fixed-top navbar-inicio p-0">
+      <nav class="navbar fixed-top navbar-inicio">
         <section class="container-fluid">
           <button
             class="navbar-toggler boton-menu"
@@ -47,7 +50,7 @@
           <a class="navbar-brand" href="#">
             <img
               class="logo-navbar"
-              src="./assets/Logo Prime Video Blanco - Sin Sonrisa.png"
+              src="../assets/Logo Prime Video Blanco - Sin Sonrisa.png"
               alt="Logo Prime Video"
             />
           </a>
@@ -62,7 +65,7 @@
             aria-controls="offcanvasLogin"
             aria-label="Toggle navigation"
           >
-            <img src="./assets/Usuario sin Imagen.png" alt="Usuario" />
+            <img src="../assets/Usuario sin Imagen.png" alt="Usuario" />
           </button>
           <!-- Parametros boton de Menú -->
           <article
@@ -83,19 +86,19 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Inicio</a>
+                  <a class="nav-link" href="../index.html">Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Películas</a>
+                  <a class="nav-link" href="../index.html">Películas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Series</a>
+                  <a class="nav-link" href="../index.html">Series</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Categorías</a>
+                  <a class="nav-link" href="../index.html">Categorías</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Mi espacio</a>
+                  <a class="nav-link" href="../index.html">Mi espacio</a>
                 </li>
               </ul>
             </div>
@@ -122,7 +125,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ayuda.html">Ayuda</a>
+                  <a class="nav-link" href="#">Ayuda</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="../pages/error404.html">Dispositivos compatibles</a>
@@ -131,7 +134,9 @@
                   <a class="nav-link" href="../pages/error404.html">Cuenta y configuracion</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/acercaDe.html">Sobre nosotros</a>
+                  <a class="nav-link" href="../pages/acercaDe.html"
+                    >Sobre nosotros</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="../pages/error404.html">Cerrar sesión</a>
@@ -142,50 +147,68 @@
         </section>
       </nav>
     </header>
-    <main>
-      <section class="pelicula-destacada">
-        <img
-          class="img-destacada"
-          src="https://i.blogs.es/25fad9/714563181_preview_interstellar_voyage-3840x2160/1366_2000.jpg"
-          alt="Pelicula destacada"
-        />
-        <article class="card interaccion-banner">
-          <div class="card-body">
-            <h5 class="card-title mb-4 fs-1">Interstellar</h5>
-            <h6 class="mb-3"><span><i class="fa-solid fa-circle-check me-2 palabra-prime"></i></span>Se incluye con Prime</h6>
-            <article class="d-flex align-items-center">
-              <a href="#" class="d-flex align-items-center me-2">
-                <h6 class="card-subtitle text-light fs-5 d-flex align-items-center">
-                  <span class="me-1">
-                    <button class="btn p-0">
-                      <i class="fa-solid fa-circle-play me-2"></i>
-                    </button>
-                  </span>
-                  Reproducir
-                </h6>
-              </a>
-              <div class="d-flex align-items-center">
-                <button class="btn p-0 me-2">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-                <a href="#">
-                  <i class="fa-solid fa-circle-info"></i>
-                </a>
-              </div>
-            </article>
+    <main class="container my-4 mt-5">
+      <h3 class="pt-3 text-light">¿Necesitas ayuda?</h3>
+      <hr />
+      <section class="bg-secondary p-3 rounded text-light">
+        <form id="form-ayuda">
+          <fieldset class="mb-2">
+            <label for="input-nombre-formulario" class="form-label"
+              >Nombre completo</label
+            >
+            <input
+              placeholder="Maria Rodriguez"
+              type="text"
+              id="input-nombre-formulario"
+              class="form-control"
+            />
+            <div class="invalid-feedback">
+              <span class="badge text-bg-danger">Ingrese un nombre valido</span>
+            </div>
+          </fieldset>
+          <fieldset class="mb-2">
+            <label for="input-numero-formulario" class="form-label"
+              >Teléfono</label
+            >
+            <input
+              placeholder="669 123 546"
+              type="text"
+              id="input-numero-formulario"
+              class="form-control"
+            />
+            <div class="invalid-feedback">
+              <span class="badge text-bg-danger">Ingrese un número valido</span>
+            </div>
+          </fieldset>
+          <fieldset class="mb-2">
+            <label for="input-email-formulario" class="form-label">Email</label>
+            <input
+              placeholder="mrodriguez@gmail.com"
+              type="text"
+              id="input-email-formulario"
+              class="form-control"
+            />
+            <div class="invalid-feedback">
+              <span class="badge text-bg-danger">Ingrese un email valido</span>
+            </div>
+          </fieldset>
+          <fieldset class="mb-2">
+            <label for="input-notas-formulario" class="form-label"
+              >Comentario</label
+            >
+            <textarea
+              placeholder="Indique la razón por la que necesita ayuda"
+              id="input-notas-formulario"
+              class="form-control"
+            ></textarea>
+            <div class="invalid-feedback">
+              <span class="badge text-bg-danger">Ingrese un comentario</span>
+            </div>
+          </fieldset>
+          <div class="text-end mt-3">
+            <button type="submit" class="btn btn-primary">Enviar</button>
           </div>
-        </article>
-      </section>
-      <section class="container-fluid seccion-categorias mt-3">
-        <h3><span class="palabra-prime">Prime </span>Ultimos lanzamientos</h3>
-
-        <!-- <div class="pelicula-inicio">
-          <img
-            src="./assets/The good doctor.jpg"
-            alt="The Good Doctor"
-            class="card-image"
-          />
-        </div> -->
+        </form>
       </section>
     </main>
     <footer>
@@ -193,15 +216,15 @@
         <article class="row text-center">
           <div class="col-12">
             <img
-              src="./assets/Logo Prime Video Blanco - Con Sonrisa.png"
+              src="../assets/Logo Prime Video Blanco - Con Sonrisa.png"
               alt="Logo de Prime Video"
             />
           </div>
         </article>
         <article class="row text-center">
           <div class="col-12">
-            <a class="me-2" href="#">Términos y Aviso de privacidad</a>
-            <a href="#">Envíanos tus comentarios</a>
+            <a class="me-2" href="../pages/error404.html">Términos y Aviso de privacidad</a>
+            <a href="../pages/ayuda.html">Envíanos tus comentarios</a>
           </div>
         </article>
         <article class="row text-center">
@@ -212,5 +235,6 @@
         </article>
       </section>
     </footer>
+    <script type="module" src="../js/ayuda/app.js"></script>
   </body>
 </html>
