@@ -1,0 +1,87 @@
+.imagen-tabla {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+ 
+  :root {
+    --color-fondo: #00050d;
+    --color-hoverHeader: #191e25;
+    --color-Textos: #ffffff;
+    --color-hoverTextos: #aaaaaa;
+    --color-primeAzul: #1a98ff;
+    --color-linksAzules: #90dffe;
+    --color-botonForm: #ffd814;
+    --color-hoverBotonForm: #eec911;
+    --color-linksForm: #c45500;
+  }
+  html{
+    min-height: 100%;
+    position: relative;
+  }
+  
+  body {
+    background-color: var(--color-fondo);
+    margin: 0;
+    margin-bottom: 40px;
+  }
+  
+  header {
+    .navbar-inicio {
+      background-color: var(--color-fondo);
+    }
+  
+    .navbar-brand {
+      color: var(--color-Textos);
+    }
+  
+    .navbar-toggler {
+      color: var(--color-Textos);
+    }
+  
+    .logo-navbar {
+      width: 96px;
+    }
+  
+    .boton-usuario {
+      background-color: var(--color-fondo);
+      img {
+        width: 30px;
+      }
+    }
+  
+    .boton-busqueda {
+      color: var(--color-Textos);
+      background-color: transparent;
+      border: none;
+    }
+  
+    .menu-desplegable {
+      background-color: var(--color-fondo);
+      color: var(--color-Textos);
+      a {
+        color: var(--color-Textos);
+      }
+    }
+  }
+  
+  .palabra-prime {
+    color: var(--color-primeAzul);
+  }
+  
+  .links-footer {
+    font-size: 13px;
+    img {
+      width: 130px;
+    }
+    a {
+      text-decoration: none;
+      color: var(--color-linksAzules);
+    }
+  }
+
+#footerCat{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
