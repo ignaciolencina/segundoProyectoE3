@@ -1,5 +1,7 @@
 import { obtenerPeliculaDeLS } from '../utils.js';
+import { obtenerCategoriaDeLS } from '../utils.js';
 import { eliminarPelicula } from './abm.js';
+import { eliminarCategoria } from './categoriasAbm.js';
 
 export const agregarPeliculaALS = (pelicula) => {
   // 1. Traemos desde LS lo que haya guardado
@@ -12,24 +14,17 @@ export const agregarPeliculaALS = (pelicula) => {
   localStorage.setItem('peliculas', JSON.stringify(peliculas));
 };
 
-/* <tr>
-              <td>1</td>
-              <td>
-                <img
-                  class="imagen-tabla"
-                  src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT-G05IXgnSS6vTvk99mhXeuKAXBXHAh0O2dKCQWhXOAjNYJoiwTUvMgWmyEnAkcTaYyj99YQ"
-                  alt="Imagen mario"
-                />
-              </td>
-              <td>Juan</td>
-              <td>12345678</td>
-              <td>hola@gmail.com</td>
-              <td>Esta es una nota</td>
-              <td>
-                <button class="btn btn-sm btn-warning">Editar</button>
-                <button class="btn btn-sm btn-danger">Eliminar</button>
-              </td>
-            </tr> */
+export const agregarCategoriaALS = (categoria) => {
+  // 1. Traemos desde LS lo que haya guardado
+  const categorias = obtenerCategoriaDeLS();
+
+  // 2. Agregamos a lo que estaba guardado, lo nuevo
+  categorias.push(categoria);
+
+  // 3. Actualizamos los contactos en LS con los valores nuevos
+  localStorage.setItem('categorias', JSON.stringify(categorias));
+};
+
 
             const cargarFilaTabla = (pelicula, indice) => {
               const $tbody = document.getElementById('tbody-peliculas');
@@ -108,6 +103,45 @@ export const agregarPeliculaALS = (pelicula) => {
               $tbody.appendChild($tr);
           };
 
+          const cargarFilaTablaCat = (categoria, indice) => {
+            const $tbody = document.getElementById('tbody-categorias');
+        
+            const $tr = document.createElement('tr');
+        
+            const $tdIndice = document.createElement('td');
+            $tdIndice.textContent = indice;
+            $tr.appendChild($tdIndice);       
+    
+        
+            const $tdNombre = document.createElement('td');
+            $tdNombre.textContent = categoria.nombre;
+            $tr.appendChild($tdNombre);   
+        
+            const $tdAcciones = document.createElement('td');
+            const $btnEditar = document.createElement('button');
+            const $btnEliminar = document.createElement('button');
+        
+            $btnEditar.classList.add('btn', 'btn-sm', 'btn-warning', 'me-2');
+            $btnEliminar.classList.add('btn', 'btn-sm', 'btn-danger', 'me-2');
+        
+            $btnEditar.textContent = 'Editar';
+            $btnEliminar.textContent = 'Eliminar';
+        
+            $btnEditar.onclick = () => {
+                prepararEdicionCategoria(categoria);
+            };
+            $btnEliminar.onclick = () => {
+                eliminarCategoria(categoria.codigo, categoria.nombre);
+            };
+        
+            $tdAcciones.appendChild($btnEditar);
+            $tdAcciones.appendChild($btnEliminar);  
+
+            $tr.appendChild($tdAcciones);
+            
+            $tbody.appendChild($tr);
+        };
+
 export const cargarTabla = () => {
   // 1. Recuperar los contactos
   const peliculas = obtenerPeliculaDeLS();
@@ -120,6 +154,21 @@ export const cargarTabla = () => {
   peliculas.forEach((pelicula, indice) => {
     // Crear fila para este elemento
     cargarFilaTabla(pelicula, indice + 1);
+  });
+};
+
+export const cargarTablaCat = () => {
+  // 1. Recuperar los contactos
+  const categorias = obtenerCategoriaDeLS();
+
+  // 2. Vaciar la tabla de los datos anteriores
+  const $tbody = document.getElementById('tbody-categorias');
+  $tbody.innerHTML = '';
+
+  // 3. Crear una fila (tr) por cada contacto
+  categorias.forEach((categoria, indice) => {
+    // Crear fila para este elemento
+    cargarFilaTablaCat(categoria, indice + 1);
   });
 };
 
@@ -143,6 +192,27 @@ export const prepararEdicionPelicula = (pelicula) => {
   const $spanPelicula = document.getElementById('nombre-pelicula-edicion');
   $alert.classList.remove('d-none');
   $spanPelicula.textContent = pelicula.nombre;
+
+  // 5. Mostrar boton
+  const $button = document.getElementById('btn-cancelar');
+  $button.classList.remove('d-none');
+
+  // TODO: Agregar event listener al botón para deshacer la edicion de un contacto (eliminar el cod de SS, vaciar los campos, resetear las clases,esconder alert, esconder boton)
+};
+
+export const prepararEdicionCategoria = (categoria) => {
+  // 1. Seleccionar los nodos de los inputs
+  const $inputNombre = document.getElementById('input-nombre-cat');
+  // 2. Cargar la info
+  $inputNombre.value = categoria.nombre;
+    // 3. Guardar código
+  sessionStorage.setItem('codigoCategoria', categoria.codigo);
+
+  // 4. Mostrar alert
+  const $alert = document.getElementById('alert-edicion-categoria');
+  const $spanCategoria = document.getElementById('nombre-categoria-edicion');
+  $alert.classList.remove('d-none');
+  $spanCategoria.textContent = categoria.nombre;
 
   // 5. Mostrar boton
   const $button = document.getElementById('btn-cancelar');
@@ -190,5 +260,13 @@ export const estaEditando = () => {
   // if (codigo) return true;
   // return false;
   return !!sessionStorage.getItem('codigoPelicula');
+};
+
+export const estaEditandoCat = () => {
+  // El usuario está editando cuando existe un "codigoContacto" en sessionStorage
+  // const codigo = sessionStorage.getItem('codigoContacto');
+  // if (codigo) return true;
+  // return false;
+  return !!sessionStorage.getItem('codigoCategoria');
 };
 

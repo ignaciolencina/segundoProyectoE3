@@ -6,3 +6,10 @@ export class Pelicula {
       this.descripcion = descripcion;
     }
   }
+
+  export class Categoria {
+    constructor(nombre) {
+      this.codigo = window.self.crypto.randomUUID();
+      this.nombre = nombre;
+    }
+  }

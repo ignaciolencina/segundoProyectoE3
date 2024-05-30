@@ -1,6 +1,10 @@
 export const obtenerPeliculaDeLS = () => {
     return ordenarLista(JSON.parse(localStorage.getItem('peliculas')) || []);
   };
+
+  export const obtenerCategoriaDeLS = () => {
+    return ordenarLista(JSON.parse(localStorage.getItem('categorias')) || []);
+  };
   
   export const estaLogueado = () => {
     return sessionStorage.getItem('estaLogueado');

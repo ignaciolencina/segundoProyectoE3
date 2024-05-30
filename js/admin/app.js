@@ -5,6 +5,21 @@ import {
   validateName,  
   validateUrl,
 } from '../validators.js';
+
+import { obtenerCategoriaDeLS } from '../utils.js';
+
+const $select = document.getElementById('select-categorias');
+const categoria = obtenerCategoriaDeLS();
+
+categoria.forEach((categoria) => {
+    const $option = document.createElement('option');
+    $option.value = categoria.codigo;
+    $option.innerText = categoria.nombre;
+    $select.appendChild($option);
+});
+
+
+
 /*import { estaLogueado } from '../utils.js';*/
 
 // ----------------------------------
