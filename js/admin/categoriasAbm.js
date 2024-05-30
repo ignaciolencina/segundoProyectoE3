@@ -42,11 +42,7 @@ export const editarCategoria = (nombre) => {
   $alert.classList.add('d-none');
 
   // 8. Mostrar boton
-<<<<<<< HEAD
-  const $button = document.getElementById('btn-cancelar');
-=======
   const $button = document.getElementById('btn-cancelar-cat');
->>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
   $button.classList.add('d-none');
 };
 

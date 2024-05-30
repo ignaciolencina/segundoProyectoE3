@@ -13,11 +13,7 @@ const categoria = obtenerCategoriaDeLS();
 
 categoria.forEach((categoria) => {
     const $option = document.createElement('option');
-<<<<<<< HEAD
-    $option.value = categoria.codigo;
-=======
     $option.value = categoria.nombre;
->>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
     $option.innerText = categoria.nombre;
     $select.appendChild($option);
 });
@@ -45,11 +41,8 @@ cargarTabla();
 // ---------------------------------
 
 const $form = document.getElementById('form-pelicula');
-<<<<<<< HEAD
-=======
 const $inputTipo = document.getElementById('input-tipo');
 const $inputCategoria = document.getElementById('select-categorias');
->>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
 const $inputNombre = document.getElementById('input-nombre');
 const $inputPortada = document.getElementById('input-portada');
 const $inputDescripcion = document.getElementById('input-descripcion');
@@ -82,17 +75,6 @@ $form.addEventListener('submit', (event) => {
   }
 
   // B. Todo OK, conseguir valores
-<<<<<<< HEAD
-
-  const nombre = $inputNombre.value;  
-  const portada = $inputPortada.value;
-  const descripcion = $inputDescripcion.value;
-
-  if (estaEditando()) {
-    editarPelicula(nombre, portada, descripcion);
-  } else {
-    agregarPelicula(nombre, portada, descripcion);
-=======
   const tipo = $inputTipo.value;
   const categoria = $inputCategoria.value;
   const nombre = $inputNombre.value;  
@@ -103,23 +85,16 @@ $form.addEventListener('submit', (event) => {
     editarPelicula(tipo, categoria, nombre,  portada, descripcion);
   } else {
     agregarPelicula( tipo, categoria, nombre, portada, descripcion);
->>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
   }
 
   // C. Resetear formulario
 
   $form.reset();
-<<<<<<< HEAD
-  $inputNombre.classList.remove('is-valid', 'is-invalid'); 
-  $inputDescripcion.classList.remove('is-valid', 'is-invalid');
-  $inputPortada.classList.remove('is-valid', 'is-invalid');
-=======
   $inputTipo.classList.remove('is-valid', 'is-invalid'); 
   $inputCategoria.classList.remove('is-valid', 'is-invalid'); 
   $inputNombre.classList.remove('is-valid', 'is-invalid');  
   $inputPortada.classList.remove('is-valid', 'is-invalid');
   $inputDescripcion.classList.remove('is-valid', 'is-invalid');
->>>>>>> 009a267de4417fa7c06481f2cf34cfa4712a7c57
 
   // D. Actualizar tabla
 
