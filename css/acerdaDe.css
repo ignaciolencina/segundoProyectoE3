@@ -1,16 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 .card-paquetes {
-    margin: 0px;
-    border: none;
-    height: 100%;
+  margin: 0px;
+  border: none;
+  height: 100%;
 }
-
-    & .img-card {
-      height: 200px;
-      width: 180px;
-      object-fit: cover;
-    }
-  
+& .img-card {
+  height: 200px;
+  width: 180px;
+  object-fit: cover;
+}
 
 @media (width < 768px) {
   main {
@@ -24,10 +22,11 @@
 
 @media (width < 577px) {
   main {
-   .img-card {
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
+    .img-card {
+      height: 300px;
+      width: 300px;
+      object-fit: cover;
+      padding-top: 20px;
     }
   }
 }
