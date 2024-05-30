@@ -1,3 +1,7 @@
+.palabra-prime {
+  color: var(--color-primeAzul);
+}
+
 .pelicula-destacada {
   height: 500px;
   img {
@@ -5,6 +9,53 @@
     object-fit: cover;
     width: 100%;
     
+<<<<<<< HEAD
+=======
+  }
+
+  .interaccion-banner {
+    &.card {
+      position: absolute;
+      top: 50%; /* Ajusta la posición vertical */
+      left: 15%; /* Ajusta la posición horizontal */
+      transform: translate(-50%, -50%); /* Centra el botón */
+      width: 250px;
+      background-color: transparent;
+      color: var(--color-Textos);
+      border: none;
+
+      a {
+        text-decoration: none;
+      }
+
+      .fa-circle-play {
+        color: var(--color-Textos);
+        font-size: 60px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.15);
+        }
+      }
+
+      .fa-plus,
+      .fa-circle-info {
+        color: var(--color-Textos);
+        font-size: 30px;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        border-radius: 100%;
+        background-color: transparent;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+          color: #000000;
+          background-color: var(--color-Textos);
+        }
+      }
+    }
+>>>>>>> c77b364592f469ae5b368990de3c4306827a82de
   }
 }
 
@@ -27,4 +78,8 @@
   width: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c77b364592f469ae5b368990de3c4306827a82de
