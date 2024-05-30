@@ -1,6 +1,8 @@
 export class Pelicula {
-    constructor(nombre, portada, descripcion) {
+    constructor(tipo, categoria, nombre, portada, descripcion) {
       this.codigo = window.self.crypto.randomUUID();
+      this.tipo = tipo;
+      this.categoria = categoria;
       this.nombre = nombre;
       this.portada = portada;
       this.descripcion = descripcion;

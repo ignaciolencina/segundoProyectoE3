@@ -13,7 +13,7 @@ const categoria = obtenerCategoriaDeLS();
 
 categoria.forEach((categoria) => {
     const $option = document.createElement('option');
-    $option.value = categoria.codigo;
+    $option.value = categoria.nombre;
     $option.innerText = categoria.nombre;
     $select.appendChild($option);
 });
@@ -41,6 +41,8 @@ cargarTabla();
 // ---------------------------------
 
 const $form = document.getElementById('form-pelicula');
+const $inputTipo = document.getElementById('input-tipo');
+const $inputCategoria = document.getElementById('select-categorias');
 const $inputNombre = document.getElementById('input-nombre');
 const $inputPortada = document.getElementById('input-portada');
 const $inputDescripcion = document.getElementById('input-descripcion');
@@ -73,23 +75,26 @@ $form.addEventListener('submit', (event) => {
   }
 
   // B. Todo OK, conseguir valores
-
+  const tipo = $inputTipo.value;
+  const categoria = $inputCategoria.value;
   const nombre = $inputNombre.value;  
-  const portada = $inputPortada.value;
+  const portada = $inputPortada.value; 
   const descripcion = $inputDescripcion.value;
 
   if (estaEditando()) {
-    editarPelicula(nombre, portada, descripcion);
+    editarPelicula(tipo, categoria, nombre,  portada, descripcion);
   } else {
-    agregarPelicula(nombre, portada, descripcion);
+    agregarPelicula( tipo, categoria, nombre, portada, descripcion);
   }
 
   // C. Resetear formulario
 
   $form.reset();
-  $inputNombre.classList.remove('is-valid', 'is-invalid'); 
-  $inputDescripcion.classList.remove('is-valid', 'is-invalid');
+  $inputTipo.classList.remove('is-valid', 'is-invalid'); 
+  $inputCategoria.classList.remove('is-valid', 'is-invalid'); 
+  $inputNombre.classList.remove('is-valid', 'is-invalid');  
   $inputPortada.classList.remove('is-valid', 'is-invalid');
+  $inputDescripcion.classList.remove('is-valid', 'is-invalid');
 
   // D. Actualizar tabla
 
