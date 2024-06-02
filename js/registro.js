@@ -1,4 +1,9 @@
 // script.js
+import { validateEmail, validateName, validatePassword } from "./validators.js";
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById("formularioRegistro");
@@ -17,6 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
 
         // Cerrar el modal después del registro
-        $('#registrationModal').modal('hide');
+        
     }
 });

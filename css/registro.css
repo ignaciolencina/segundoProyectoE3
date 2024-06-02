@@ -10,9 +10,7 @@
     --color-linksForm: #c45500;
   }
   
-  body {
-    background-color: var(--color-fondo);
-  }
+
   
   header {
     .navbar-inicio {

@@ -6,4 +6,7 @@ export class Usuario{
     this.email= email;
     this.contraseña= contraseña
     }
+    validarCredenciales(email,contraseña){
+        return this.email ===email && this.contraseña === contraseña;
+    }
 }
