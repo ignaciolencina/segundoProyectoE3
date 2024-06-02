@@ -1,5 +1,6 @@
 import { obtenerPeliculaDeLS } from "../utils.js";
 import { cargarCard } from "./utils.js";
+import { caratulaDestacada } from "./utils.js";
 
 const $seccionPeliculasBuscadas = document.getElementById(
   "seccion-peliculas-buscadas"
@@ -9,10 +10,9 @@ const peliculas = obtenerPeliculaDeLS();
 // Carga de las peliculas/series en el body
 
 peliculas.forEach((pelicula) => {
-  if (pelicula.publicada === true){
+  if (pelicula.publicada === true) {
     cargarCard(pelicula);
   }
-  
 });
 
 // Busqueda
@@ -44,8 +44,16 @@ $formBusqueda.addEventListener("submit", (e) => {
     });
   } else {
     const $mensaje = document.createElement("p");
-    $mensaje.className = "text-light ms-2"
+    $mensaje.className = "text-light ms-2";
     $mensaje.innerText = "Por favor, ingrese un título o categoría";
     $seccionPeliculasBuscadas.appendChild($mensaje);
+  }
+});
+
+// Carga de película destacada al body
+
+peliculas.forEach((pelicula) => {
+  if (pelicula.publicada === true && pelicula.destacar === true) {
+    caratulaDestacada(pelicula);
   }
 });
