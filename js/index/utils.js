@@ -60,10 +60,8 @@ export const cargarCard = (pelicula) => {
   $cardDiv.appendChild($imagen);
   $cardDiv.appendChild($contenidoDiv);
 
-
   $seccionLanzamientos.appendChild($cardDiv);
 };
-
 
 export const caratulaDestacada = (pelicula) => {
   const $peliculaDestacada = document.getElementById("pelicula-destacada");
@@ -73,7 +71,6 @@ export const caratulaDestacada = (pelicula) => {
   $portada.alt = pelicula.nombre;
   $portada.className = "portada-destacada";
   $peliculaDestacada.appendChild($portada);
-  
 
   const $contenedor = document.createElement("div");
   $contenedor.className = "card z-3 position-absolute acciones-portada";
@@ -122,15 +119,20 @@ export const caratulaDestacada = (pelicula) => {
   $contenidoArticle.appendChild($playLink);
   $contenidoArticle.appendChild($botonesDiv);
 
-  
   $contenidoDiv.appendChild($peliculaTitulo);
   $contenidoDiv.appendChild($primeTitulo);
   $contenidoDiv.appendChild($contenidoArticle);
-  
 
   $contenedor.appendChild($contenidoDiv);
 
-  $peliculaDestacada.appendChild($contenedor)
- 
+  $peliculaDestacada.appendChild($contenedor);
+};
 
+// Scroll horizontal
+
+export function agregarScrollHorizontal(scrollHorizontal) {
+  scrollHorizontal.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    scrollHorizontal.scrollLeft += event.deltaX;
+  });
 }

@@ -7,6 +7,13 @@
 }
 
 .lanzamientos {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   .card {
     width: 300px;
     height: 200px;
@@ -82,7 +89,7 @@
     object-fit: cover;
   }
 
-  .card{
+  .card {
     width: 270px;
     border: none;
     background-color: transparent;
@@ -90,7 +97,6 @@
     left: 30px;
   }
 
-  
   .reproduccion {
     a {
       text-decoration: none;
@@ -123,4 +129,9 @@
       }
     }
   }
+}
+
+
+.espacioPrueba{
+  height: 600px;
 }

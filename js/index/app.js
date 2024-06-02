@@ -1,6 +1,7 @@
 import { obtenerPeliculaDeLS } from "../utils.js";
 import { cargarCard } from "./utils.js";
 import { caratulaDestacada } from "./utils.js";
+import { agregarScrollHorizontal } from "./utils.js";
 
 const $seccionPeliculasBuscadas = document.getElementById(
   "seccion-peliculas-buscadas"
@@ -57,3 +58,11 @@ peliculas.forEach((pelicula) => {
     caratulaDestacada(pelicula);
   }
 });
+
+
+const $seccionLanzamientos = document.getElementById("seccion-lanzamientos");
+
+$seccionLanzamientos.forEach((pelicula) => {
+  agregarScrollHorizontal(pelicula)
+});
+
