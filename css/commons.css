@@ -36,24 +36,48 @@ header {
     img {
       width: 30px;
     }
+    &:focus,
+    :active {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .boton-menu {
+    &:focus,
+    :active {
+      outline: none;
+      box-shadow: none;
+    }
   }
 
   .boton-busqueda {
     color: var(--color-Textos);
     background-color: transparent;
     border: none;
+
+    &:focus,
+    :active {
+      outline: none;
+      box-shadow: none;
+    }
   }
 
   .menu-desplegable {
     background-color: var(--color-fondo);
     color: var(--color-Textos);
+
     a {
       color: var(--color-Textos);
+      &::after {
+        color: var(--color-hoverTextos);
+      }
+      &:hover {
+        color: var(--color-hoverTextos);
+      }
     }
   }
 }
-
-
 
 .links-footer {
   font-size: 13px;
@@ -63,5 +87,44 @@ header {
   a {
     text-decoration: none;
     color: var(--color-linksAzules);
+  }
+}
+
+#offcanvasBusqueda {
+  height: 100vh;
+  background-color: var(--color-fondo);
+  .header-buscador {
+    height: 30px;
+    margin-top: 5px;
+  }
+}
+
+.input-busqueda {
+  background-color: transparent;
+  color: var(--color-Textos);
+  font-weight: bold;
+  border: solid;
+  width: 100%;
+  border-radius: 0.5rem;
+
+  &:focus,
+  :active {
+    outline: none;
+    box-shadow: none;
+  }
+
+  
+}
+
+.boton-formulario{
+  border-radius: 0.5rem;
+  color: var(--color-Textos);
+  background-color: transparent;
+  border: solid;
+  transition: all 0.1s ease-in-out;
+
+  &:hover{
+    color: var(--color-primeAzul);
+    border-color: var(--color-primeAzul);
   }
 }

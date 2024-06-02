@@ -51,8 +51,15 @@
               alt="Logo Prime Video"
             />
           </a>
-          <button class="boton-busqueda">
-            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+          <button
+            class="navbar-toggler boton-busqueda"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasBusqueda"
+            aria-controls="offcanvasBusqueda"
+            aria-label="Toggle navigation"
+          >
+            <i class="fa-solid fa-magnifying-glass fa-x1"></i>
           </button>
           <button
             class="navbar-toggler boton-usuario"
@@ -122,6 +129,9 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
+                  <a class="nav-link" href="#">Iniciar sesion</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="pages/ayuda.html">Ayuda</a>
                 </li>
                 <li class="nav-item">
@@ -140,9 +150,39 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/error404.html"
+                  <a class="nav-link d-none" href="../pages/error404.html"
                     >Cerrar sesión</a
                   >
+                </li>
+              </ul>
+            </div>
+          </article>
+
+        <!-- Parametros boton de Busqueda -->
+        <article
+            class="offcanvas offcanvas-top o"
+            tabindex="-1"
+            id="offcanvasBusqueda"
+            aria-labelledby="offcanvasBusquedaLabel"
+          >
+            <div class="offcanvas-header header-buscador">
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <form class="d-flex gap-2 w-100" id="form-index-peliculas">
+                    <input type="text" class="input-busqueda text-light" id="input-busqueda-peliculas" placeholder="  Titulo / Categoría">
+                    <button type="submit" class="boton-formulario">Buscar</button>
+                  </form>
+                </li>
+                <li>
+                  <section id="seccion-peliculas-buscadas" class="my-4"></section>
                 </li>
               </ul>
             </div>
@@ -151,14 +191,15 @@
       </nav>
     </header>
     <main>
-      <section class="pelicula-destacada">
-        
-      </section>
-      <section class="container-fluid seccion-categorias mt-3">
+      <section class="pelicula-destacada"></section>
+      <section class="container-fluid seccion-categorias mt-5">
         <h3><span class="palabra-prime">Prime </span>Ultimos lanzamientos</h3>
       </section>
       <section class="container-fluid">
-        <article class="row justify-content-center lanzamientos" id="seccion-lanzamientos"></article>
+        <article
+          class="row justify-content-center lanzamientos"
+          id="seccion-lanzamientos"
+        ></article>
       </section>
     </main>
     <footer>
