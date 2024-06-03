@@ -17,6 +17,7 @@ body {
 header {
   .navbar-inicio {
     background-color: var(--color-fondo);
+    height: 50px;
   }
 
   .navbar-brand {
@@ -44,15 +45,16 @@ header {
   }
 
   .boton-menu {
+    font-size: 1.1rem;
     &:focus,
     :active {
       outline: none;
       box-shadow: none;
-    }
+    } 
   }
 
   .boton-busqueda {
-    color: var(--color-Textos);
+    color: var(--color-hoverTextos);
     background-color: transparent;
     border: none;
 
