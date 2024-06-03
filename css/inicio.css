@@ -6,7 +6,8 @@
   color: var(--color-Textos);
 }
 
-.lanzamientos {
+.lanzamientos,
+.peliculas-contenedor {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
