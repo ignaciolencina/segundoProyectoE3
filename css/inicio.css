@@ -52,7 +52,12 @@
   .reproduccion {
     a {
       text-decoration: none;
+      color: var(--color-Textos);
+      display: flex;
+      align-items: center;
     }
+
+    
 
     .fa-circle-play {
       color: #ffffff;
@@ -91,7 +96,7 @@
   }
 
   .card {
-    width: 270px;
+    width: 400px;
     border: none;
     background-color: transparent;
     top: 100px;
@@ -101,6 +106,9 @@
   .reproduccion {
     a {
       text-decoration: none;
+      color: var(--color-Textos);
+      display: flex;
+      align-items: center;
     }
 
     .fa-circle-play {
@@ -132,7 +140,35 @@
   }
 }
 
+@media (width >= 768px) {
+  .pelicula-destacada {
+    img {
+      height: 500px;
+    }
+    .card {
+      top: 200px;
+      left: 70px;
+    }
 
-.espacioPrueba{
-  height: 600px;
+    h5 {
+      font-size: 3rem;
+    }
+
+    h6 {
+      font-size: 1.5rem;
+    }
+
+    .reproduccion {
+      a{
+        font-size: 1.5rem;
+      }
+      .fa-circle-play {
+        font-size: 70px;
+      }
+      .fa-plus,
+      .fa-circle-info {
+        font-size: 40px;
+      }
+    }
+  }
 }

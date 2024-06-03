@@ -24,19 +24,17 @@ export const cargarCardLanzamientos = (pelicula) => {
   $playLink.href = "#";
   $playLink.className = "d-flex align-items-center me-2";
 
-  const $playBoton = document.createElement("h6");
-  $playBoton.className =
-    "card-subtitle text-light fs-6 d-flex align-items-center";
-  $playBoton.innerHTML =
-    '<span class="me-1"><button class="btn p-0"><i class="fa-solid fa-circle-play me-1"></i></button></span>Reproducir';
+  const $playBoton = document.createElement("a");
+  $playBoton.href = "#";
+  $playBoton.innerHTML = '<i class="fa-solid fa-circle-play me-2"></i>Reproducir'
 
   $playLink.appendChild($playBoton);
 
   const $botonesDiv = document.createElement("div");
   $botonesDiv.className = "d-flex align-items-center";
 
-  const $botonMas = document.createElement("button");
-  $botonMas.className = "btn p-0 me-1";
+  const $botonMas = document.createElement("a");
+  $botonMas.href = "#";
   $botonMas.innerHTML = '<i class="fa-solid fa-plus"></i>';
 
   const $infoLink = document.createElement("a");
@@ -79,7 +77,7 @@ export const caratulaDestacada = (pelicula) => {
   $contenidoDiv.className = "card-content";
 
   const $peliculaTitulo = document.createElement("h5");
-  $peliculaTitulo.className = "card-title text-light mb-4 fs-4";
+  $peliculaTitulo.className = "card-title text-light mb-4";
   $peliculaTitulo.textContent = pelicula.nombre;
 
   const $primeTitulo = document.createElement("h6");
@@ -92,21 +90,19 @@ export const caratulaDestacada = (pelicula) => {
 
   const $playLink = document.createElement("a");
   $playLink.href = "#";
-  $playLink.className = "d-flex align-items-center me-2";
+  $playLink.className = "d-flex align-items-center me-2 navegacion-play";
 
-  const $playBoton = document.createElement("h6");
-  $playBoton.className =
-    "card-subtitle text-light fs-6 d-flex align-items-center";
-  $playBoton.innerHTML =
-    '<span class="me-1"><button class="btn p-0"><i class="fa-solid fa-circle-play me-1"></i></button></span>Reproducir';
+  const $playBoton = document.createElement("a");
+  $playBoton.href = "#";
+  $playBoton.innerHTML = '<i class="fa-solid fa-circle-play me-3"></i>Reproducir'
 
   $playLink.appendChild($playBoton);
 
   const $botonesDiv = document.createElement("div");
   $botonesDiv.className = "d-flex align-items-center";
 
-  const $botonMas = document.createElement("button");
-  $botonMas.className = "btn p-0 me-1";
+  const $botonMas = document.createElement("a");
+  $botonMas.href = "#";
   $botonMas.innerHTML = '<i class="fa-solid fa-plus"></i>';
 
   const $infoLink = document.createElement("a");
@@ -162,19 +158,17 @@ export const cargarCardCategorias = (pelicula) => {
   $playLink.href = "#";
   $playLink.className = "d-flex align-items-center me-2";
 
-  const $playBoton = document.createElement("h6");
-  $playBoton.className =
-    "card-subtitle text-light fs-6 d-flex align-items-center";
-  $playBoton.innerHTML =
-    '<span class="me-1"><button class="btn p-0"><i class="fa-solid fa-circle-play me-1"></i></button></span>Reproducir';
+  const $playBoton = document.createElement("a");
+  $playBoton.href = "#";
+  $playBoton.innerHTML = '<i class="fa-solid fa-circle-play me-2"></i>Reproducir'
 
   $playLink.appendChild($playBoton);
 
   const $botonesDiv = document.createElement("div");
   $botonesDiv.className = "d-flex align-items-center";
 
-  const $botonMas = document.createElement("button");
-  $botonMas.className = "btn p-0 me-1";
+  const $botonMas = document.createElement("a");
+  $botonMas.href = "#";
   $botonMas.innerHTML = '<i class="fa-solid fa-plus"></i>';
 
   const $infoLink = document.createElement("a");
