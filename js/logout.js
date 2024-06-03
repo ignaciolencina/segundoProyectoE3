@@ -4,7 +4,7 @@ import { estaLogueado } from './utils.js';
 // 1. Seleccionar el boton
 // -------------------------------------
 
-const $botonLogout = document.getElementById('boton-salir');
+const $botonLogout = document.getElementById('cerrar-sesion');
 
 // -------------------------------------
 // 2. Mostrar/ocultar el boton

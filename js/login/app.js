@@ -1,5 +1,5 @@
 import { estaLogueado } from '../utils.js';
-import { validateEmail, validatePassword } from '../validators.js';
+import { validateEmailFormulario, validatePassword } from '../validators.js';
 import { Usuario } from './Contacto.js';
 
 // ----------------------------------
@@ -33,7 +33,7 @@ $form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // 1. Validar los campos
-  if (validateEmail($inputEmail, false) && validatePassword($inputContraseña)) {
+  if (validateEmailFormulario($inputEmail, false) && validatePassword($inputContraseña)) {
     // Campos válidos, falta verificar las credenciales
 
     // a. Traemos los valores

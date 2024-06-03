@@ -63,7 +63,7 @@ export const validateName = ($field) => {
     return true;
   };
   
- /* export const validatePassword = ($field) => {
+ export const validatePassword = ($field) => {
     // No sea vacio, null, etcs
     if (!$field || !$field.value.trim()) {
       $field.classList.add('is-invalid');
@@ -86,7 +86,7 @@ export const validateName = ($field) => {
   
     $field.classList.remove('is-invalid');
     return true;
-  };*/
+  };
 //Validar NOMBRE
 // Retorna un booleano, siendo true cuando el campo está correcto
 export const validateNameFormulario = ($field) => {
