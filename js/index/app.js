@@ -1,5 +1,6 @@
 import { obtenerPeliculaDeLS } from "../utils.js";
-import { cargarCard } from "./utils.js";
+import { obtenerCategoriaDeLS } from "../utils.js";
+import { cargarCardLanzamientos } from "./utils.js";
 import { caratulaDestacada } from "./utils.js";
 import { agregarScrollHorizontal } from "./utils.js";
 
@@ -7,14 +8,41 @@ const $seccionPeliculasBuscadas = document.getElementById(
   "seccion-peliculas-buscadas"
 );
 const peliculas = obtenerPeliculaDeLS();
+const categorias = obtenerCategoriaDeLS();
 
-// Carga de las peliculas/series en el body
+// Carga de las peliculas/series en la seccion de últimos lanzaminetos
 
 peliculas.forEach((pelicula) => {
   if (pelicula.publicada === true) {
-    cargarCard(pelicula);
+    cargarCardLanzamientos(pelicula);
   }
 });
+
+// Carga de peliculas por categoría
+
+const $cargaCategorias = document.getElementById("seccion-categorias");
+
+const contenedoresCategorias = {};
+
+categorias.forEach((categoria) => {
+  const $article = document.createElement("article");
+
+  const $categoriaTitulo = document.createElement("h3");
+  $categoriaTitulo.className = "text-light";
+  $categoriaTitulo.innerHTML = `<span class="palabra-prime">Prime </span>${categoria.nombre}`;
+
+  $article.appendChild($categoriaTitulo);
+
+  const $categoriaSeccion = document.createElement("div");
+  $categoriaSeccion.className = "categoria-seccion";
+
+  contenedoresCategorias[categoria.nombre] = $categoriaSeccion;
+
+  $article.appendChild($categoriaSeccion);
+  $cargaCategorias.appendChild($article);
+});
+
+
 
 // Busqueda
 
@@ -59,10 +87,8 @@ peliculas.forEach((pelicula) => {
   }
 });
 
-
 const $seccionLanzamientos = document.getElementById("seccion-lanzamientos");
 
 $seccionLanzamientos.forEach((pelicula) => {
-  agregarScrollHorizontal(pelicula)
+  agregarScrollHorizontal(pelicula);
 });
-

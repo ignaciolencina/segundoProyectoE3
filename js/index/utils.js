@@ -1,4 +1,4 @@
-export const cargarCard = (pelicula) => {
+export const cargarCardLanzamientos = (pelicula) => {
   const $seccionLanzamientos = document.getElementById("seccion-lanzamientos");
 
   const $cardDiv = document.createElement("div");
@@ -136,3 +136,5 @@ export function agregarScrollHorizontal(scrollHorizontal) {
     scrollHorizontal.scrollLeft += event.deltaX;
   });
 }
+
+
