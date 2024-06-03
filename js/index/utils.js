@@ -21,8 +21,14 @@ export const cargarCardLanzamientos = (pelicula) => {
   $contenidoArticle.className = "d-flex align-items-center reproduccion";
 
   const $playLink = document.createElement("a");
-  $playLink.href = "#";
-  $playLink.className = "d-flex align-items-center me-2";
+  $playLink.href = "./pages/detalle.html";
+  $playLink.classList.add(
+    "text-decoration-none",
+    "botones-card",
+    "mx-1",
+    "fs-5",
+    "btn-play"
+  );
 
   const $playBoton = document.createElement("h6");
   $playBoton.className =
@@ -91,8 +97,14 @@ export const caratulaDestacada = (pelicula) => {
   $contenidoArticle.className = "d-flex align-items-center reproduccion";
 
   const $playLink = document.createElement("a");
-  $playLink.href = "#";
-  $playLink.className = "d-flex align-items-center me-2";
+  $playLink.href = "./pages/detalle.html";
+  $playLink.classList.add(
+    "text-decoration-none",
+    "botones-card",
+    "mx-1",
+    "fs-5",
+    "btn-play"
+  );
 
   const $playBoton = document.createElement("h6");
   $playBoton.className =
@@ -139,6 +151,7 @@ export function agregarScrollHorizontal(scrollHorizontal) {
 
 
 export const cargarCardCategorias = (pelicula) => {
+  
   const $cardDiv = document.createElement("div");
   $cardDiv.className = "card m-3 g-0 col-3";
 
@@ -160,7 +173,12 @@ export const cargarCardCategorias = (pelicula) => {
 
   const $playLink = document.createElement("a");
   $playLink.href = "#";
-  $playLink.className = "d-flex align-items-center me-2";
+  $playLink.classList.add(
+    "text-decoration-none",
+    "botones-card",
+    "mx-1",
+    "fs-5"
+  );
 
   const $playBoton = document.createElement("h6");
   $playBoton.className =
@@ -199,4 +217,6 @@ export const cargarCardCategorias = (pelicula) => {
   $cardDiv.appendChild($contenidoDiv);
 
   return $cardDiv;
+
+ 
 };

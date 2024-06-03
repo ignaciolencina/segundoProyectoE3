@@ -93,6 +93,8 @@ peliculas.forEach((pelicula) => {
 
 const $seccionLanzamientos = document.getElementById("seccion-lanzamientos");
 
-$seccionLanzamientos.forEach((pelicula) => {
+/*$seccionLanzamientos.forEach((pelicula) => {
   agregarScrollHorizontal(pelicula);
-});
+});*/
+
+
