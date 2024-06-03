@@ -1,6 +1,7 @@
 import { obtenerPeliculaDeLS } from "../utils.js";
 import { obtenerCategoriaDeLS } from "../utils.js";
 import { cargarCardLanzamientos } from "./utils.js";
+import { cargarCardCategorias } from "./utils.js";
 import { caratulaDestacada } from "./utils.js";
 import { agregarScrollHorizontal } from "./utils.js";
 
@@ -10,7 +11,7 @@ const $seccionPeliculasBuscadas = document.getElementById(
 const peliculas = obtenerPeliculaDeLS();
 const categorias = obtenerCategoriaDeLS();
 
-// Carga de las peliculas/series en la seccion de últimos lanzaminetos
+// Carga de las peliculas/series en la seccion de últimos lanzaminetos ---------------
 
 peliculas.forEach((pelicula) => {
   if (pelicula.publicada === true) {
@@ -18,33 +19,36 @@ peliculas.forEach((pelicula) => {
   }
 });
 
-// Carga de peliculas por categoría
+// Carga de peliculas por categoría ---------------------------------------------------
 
 const $cargaCategorias = document.getElementById("seccion-categorias");
-
-const contenedoresCategorias = {};
 
 categorias.forEach((categoria) => {
   const $article = document.createElement("article");
 
   const $categoriaTitulo = document.createElement("h3");
-  $categoriaTitulo.className = "text-light";
+  $categoriaTitulo.className = "text-light ms-3 mt-4";
   $categoriaTitulo.innerHTML = `<span class="palabra-prime">Prime </span>${categoria.nombre}`;
 
   $article.appendChild($categoriaTitulo);
 
-  const $categoriaSeccion = document.createElement("div");
-  $categoriaSeccion.className = "categoria-seccion";
+  const $peliculasContenedor = document.createElement("div");
+  $peliculasContenedor.className = "peliculas-contenedor";
 
-  contenedoresCategorias[categoria.nombre] = $categoriaSeccion;
+  const peliculasFiltradas = peliculas.filter(
+    (pelicula) => pelicula.categoria === categoria.nombre
+  );
 
-  $article.appendChild($categoriaSeccion);
+  peliculasFiltradas.forEach((pelicula) => {
+    const $peliculaCard = cargarCardCategorias(pelicula);
+    $peliculasContenedor.appendChild($peliculaCard);
+  });
+
+  $article.appendChild($peliculasContenedor);
   $cargaCategorias.appendChild($article);
 });
 
-
-
-// Busqueda
+// Busqueda -------------------------------------------------------------------------------
 
 const $formBusqueda = document.getElementById("form-index-peliculas");
 const $inputBusqueda = document.getElementById("input-busqueda-peliculas");
@@ -79,7 +83,7 @@ $formBusqueda.addEventListener("submit", (e) => {
   }
 });
 
-// Carga de película destacada al body
+// Carga de película destacada al body -----------------------------------------------------
 
 peliculas.forEach((pelicula) => {
   if (pelicula.publicada === true && pelicula.destacar === true) {
