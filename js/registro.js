@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
 
-        // Cerrar el modal después del registro
-        
+       
     }
 });
