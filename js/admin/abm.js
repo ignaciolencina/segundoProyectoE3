@@ -1,17 +1,29 @@
-import { obtenerPeliculaDeLS } from '../utils.js';
-import { Pelicula} from './Pelicula.js';
-import { agregarPeliculaALS, cargarTabla } from './utils.js';
+import { obtenerPeliculaDeLS } from "../utils.js";
+import { Pelicula } from "./Pelicula.js";
+import { agregarPeliculaALS, cargarTabla } from "./utils.js";
 
-export const agregarPelicula = (tipo, categoria, nombre,  portada, descripcion) => {
-  const pelicula = new Pelicula(tipo, categoria, nombre,  portada, descripcion);
+export const agregarPelicula = (
+  tipo,
+  categoria,
+  nombre,
+  portada,
+  descripcion
+) => {
+  const pelicula = new Pelicula(tipo, categoria, nombre, portada, descripcion);
 
   agregarPeliculaALS(pelicula);
 };
 
-export const editarPelicula = (tipo, categoria, nombre,  portada , descripcion) => {
+export const editarPelicula = (
+  tipo,
+  categoria,
+  nombre,
+  portada,
+  descripcion
+) => {
   // 1. Traer los datos necesarios
   const peliculas = obtenerPeliculaDeLS();
-  const codigoPelicula = sessionStorage.getItem('codigoPelicula');
+  const codigoPelicula = sessionStorage.getItem("codigoPelicula");
 
   // 2. Encontrar la posicion del contacto a editar
   const posicionPelicula = peliculas.findIndex((pelicula) => {
@@ -19,44 +31,50 @@ export const editarPelicula = (tipo, categoria, nombre,  portada , descripcion) 
   });
 
   if (posicionPelicula === -1) {
-    alert('La Película/Serie no se encontró');
-    sessionStorage.removeItem('codigoPelicula');
+    alert("La Película/Serie no se encontró");
+    sessionStorage.removeItem("codigoPelicula");
     return;
   }
 
   // 3. Crear el nuevo objeto contacto
-  const nuevoPelicula = new Pelicula(tipo, categoria, nombre,  portada, descripcion);
+  const nuevoPelicula = new Pelicula(
+    tipo,
+    categoria,
+    nombre,
+    portada,
+    descripcion
+  );
 
   // 4. Editar la posicion del contacto existente por el nuevo
   peliculas.splice(posicionPelicula, 1, nuevoPelicula);
   // contactos[posicionContacto] = nuevoContacto;
 
   // 5. Actualizar LS
-  localStorage.setItem('peliculas', JSON.stringify(peliculas));
+  localStorage.setItem("peliculas", JSON.stringify(peliculas));
 
   // 6. Eliminar el código de SS
-  sessionStorage.removeItem('codigoPelicula');
+  sessionStorage.removeItem("codigoPelicula");
 
   // 7. Esconder alert
-  const $alert = document.getElementById('alert-edicion-pelicula');
-  $alert.classList.add('d-none');
+  const $alert = document.getElementById("alert-edicion-pelicula");
+  $alert.classList.add("d-none");
 
   // 8. Mostrar boton
-  const $button = document.getElementById('btn-cancelar');
-  $button.classList.add('d-none');
+  const $button = document.getElementById("btn-cancelar");
+  $button.classList.add("d-none");
 };
 
 export const eliminarPelicula = (idPelicula, nombrePelicula) => {
   // 1. CONFIRMAR que se desea eliminar el contacto
   swal
     .fire({
-      title: 'Atención',
+      title: "Atención",
       text: `¿Estás seguro que deseas eliminar ${nombrePelicula}? Esta acción es irreversible.`,
-      icon: 'warning',
+      icon: "warning",
       showConfirmButton: true,
       showCancelButton: true,
-      confirmButtonText: 'Si, eliminar',
-      cancelButtonText: 'No, cancelar',
+      confirmButtonText: "Si, eliminar",
+      cancelButtonText: "No, cancelar",
     })
     .then((result) => {
       if (result.isConfirmed) {
@@ -64,24 +82,24 @@ export const eliminarPelicula = (idPelicula, nombrePelicula) => {
         const pelicula = obtenerPeliculaDeLS();
 
         // 3. Filtrar esa lista para eliminar el contacto con id indicado
-        const  nuevosPeliculas = pelicula.filter((pelicula) => {
+        const nuevosPeliculas = pelicula.filter((pelicula) => {
           return pelicula.codigo !== idPelicula;
         });
 
         // 4. Actualizar lista en LS
-        localStorage.setItem('peliculas', JSON.stringify(nuevosPeliculas));
+        localStorage.setItem("peliculas", JSON.stringify(nuevosPeliculas));
 
         // 5. Actualizar la tabla
         cargarTabla();
 
         // 6. Notificar al usuario del exito
         swal.fire({
-          title: 'Exito',
+          title: "Exito",
           text: ` ${nombrePelicula} eliminado correctamente`,
-          icon: 'success',
+          icon: "success",
           showConfirmButton: true,
           showCancelButton: false,
-          confirmButtonText: 'Tarea Completada',
+          confirmButtonText: "Tarea Completada",
         });
       }
     });
