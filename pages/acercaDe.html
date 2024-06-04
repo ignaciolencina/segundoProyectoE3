@@ -33,6 +33,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Link a CCS Propio c -->
     <link rel="stylesheet" href="../css/commons.css" />
@@ -154,7 +155,13 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="./login.html">Iniciar sesion</a>
+                  <a class="nav-link " id="inicio" href="./login.html">Iniciar sesion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " id="registro" href="./registro.html">Registrarse</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="admin" href="./admin.html">Administrador</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./ayuda.html">Ayuda</a>
@@ -428,6 +435,7 @@
         </article>
       </section>
     </footer>
+    <script type="module" src="../js/index/app.js"></script>
     <script type="module" src="../js/login/logout.js"></script>
   </body>
 </html>
