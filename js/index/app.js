@@ -1,21 +1,50 @@
 import { obtenerPeliculaDeLS } from "../utils.js";
 import { obtenerCategoriaDeLS } from "../utils.js";
 import { cargarCardLanzamientos } from "./utils.js";
+import { cargarCardSeries } from "./utils.js";
 import { cargarCardCategorias } from "./utils.js";
 import { caratulaDestacada } from "./utils.js";
+import { validateName } from "../validators.js";
 import { agregarScrollHorizontal } from "./utils.js";
 
-const $seccionPeliculasBuscadas = document.ggitetElementById(
+document.addEventListener("DOMContentLoaded", () => {
+  const estaLogueado = sessionStorage.getItem("estaLogueado") === "true";
+
+  const loginButton = document.getElementById("inicio");
+  const registerButton = document.getElementById("registro");
+  const logoutButton = document.getElementById("cerrarSesion");
+  const adminButton = document.getElementById("admin");
+
+  if (estaLogueado) {
+    loginButton.style.display = "none";
+    registerButton.style.display = "none";
+    adminButton.style.display = "block";
+    logoutButton.style.display = "block";
+  } else {
+    loginButton.style.display = "block";
+    registerButton.style.display = "block";
+    adminButton.style.display = "none";
+    logoutButton.style.display = "none";
+  }
+
+  logoutButton.addEventListener("click", () => {
+    localStorage.setItem("estaLogueado", "false");
+  });
+});
+
+const $seccionPeliculasBuscadas = document.getElementById(
   "seccion-peliculas-buscadas"
 );
 const peliculas = obtenerPeliculaDeLS();
 const categorias = obtenerCategoriaDeLS();
 
-// Carga de las peliculas/series en la seccion de últimos lanzaminetos ---------------
+// Carga de las peliculas/series  ---------------
 
 peliculas.forEach((pelicula) => {
-  if (pelicula.publicada === true) {
+  if (pelicula.publicada === true && pelicula.tipo === "Pelicula") {
     cargarCardLanzamientos(pelicula);
+  } else if (pelicula.publicada === true && pelicula.tipo === "Serie") {
+    cargarCardSeries(pelicula);
   }
 });
 
@@ -34,13 +63,8 @@ categorias.forEach((categoria) => {
 
   const $peliculasContenedor = document.createElement("div");
   $peliculasContenedor.className = "peliculas-contenedor";
+});
 
- // Función para normalizar cadenas eliminando los acentos
-function normalizar(cadena) {
-  return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
-
-// Filtrado y renderizado de películas por categoría
 const peliculasFiltradas = peliculas.filter(
   (pelicula) => normalizar(pelicula.categoria) === normalizar(categoria.nombre)
 );
@@ -58,6 +82,24 @@ $cargaCategorias.appendChild($article);
 const $formBusqueda = document.getElementById("form-index-peliculas");
 const $inputBusqueda = document.getElementById("input-busqueda-peliculas");
 
+function normalizar(cadena) {
+  return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+$formBusqueda.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (validateName($inputBusqueda)) {
+    console.log("Búsqueda válida:", $inputBusqueda);
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Título no válido",
+      text: "Por favor, ingrese un nombre válido.",
+    });
+  }
+});
+
 $formBusqueda.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -68,14 +110,18 @@ $formBusqueda.addEventListener("submit", (e) => {
   if (busqueda !== "") {
     const peliculaFiltrada = peliculas.filter((pelicula) => {
       return (
-        normalizar(pelicula.nombre).toLowerCase().includes(busqueda.toLowerCase()) ||
-        normalizar(pelicula.categoria).toLowerCase().includes(busqueda.toLowerCase())
+        normalizar(pelicula.nombre)
+          .toLowerCase()
+          .includes(busqueda.toLowerCase()) ||
+        normalizar(pelicula.categoria)
+          .toLowerCase()
+          .includes(busqueda.toLowerCase())
       );
     });
 
     peliculaFiltrada.forEach((pelicula) => {
       const $a = document.createElement("a");
-      $a.href = "#";
+      $a.href = "./pages/error404.html";
       $a.className = "text-light text-decoration-none ms-2 d-block";
       $a.innerText = `${pelicula.nombre} / ${pelicula.categoria}`;
       $seccionPeliculasBuscadas.appendChild($a);
@@ -87,7 +133,6 @@ $formBusqueda.addEventListener("submit", (e) => {
     $seccionPeliculasBuscadas.appendChild($mensaje);
   }
 });
-});
 
 // Carga de película destacada al body -----------------------------------------------------
 
@@ -97,10 +142,9 @@ peliculas.forEach((pelicula) => {
   }
 });
 
-const $seccionLanzamientos = document.getElementById("seccion-lanzamientos");
+// Agregado de scroll horizontal----------
 
-/*$seccionLanzamientos.forEach((pelicula) => {
+$seccionLanzamientos.forEach((pelicula) => {
   agregarScrollHorizontal(pelicula);
-});*/
-
+});
 
