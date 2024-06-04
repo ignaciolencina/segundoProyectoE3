@@ -68,11 +68,6 @@ categorias.forEach((categoria) => {
   const $peliculasContenedor = document.createElement("div");
   $peliculasContenedor.className = "peliculas-contenedor";
 
- // Función para normalizar cadenas eliminando los acentos
-function normalizar(cadena) {
-  return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
-
 // Filtrado y renderizado de películas por categoría
 const peliculasFiltradas = peliculas.filter(
   (pelicula) => normalizar(pelicula.categoria) === normalizar(categoria.nombre)
@@ -90,6 +85,11 @@ $cargaCategorias.appendChild($article);
 
 const $formBusqueda = document.getElementById("form-index-peliculas");
 const $inputBusqueda = document.getElementById("input-busqueda-peliculas");
+
+ // Función para normalizar cadenas eliminando los acentos
+ function normalizar(cadena) {
+  return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 
 $formBusqueda.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -151,8 +151,8 @@ peliculas.forEach((pelicula) => {
 
 
 
-/*$seccionLanzamientos.forEach((pelicula) => {
+$seccionLanzamientos.forEach((pelicula) => {
   agregarScrollHorizontal(pelicula);
-});*/
+});
 
 
