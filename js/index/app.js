@@ -4,37 +4,33 @@ import { cargarCardLanzamientos } from "./utils.js";
 import { cargarCardSeries } from "./utils.js";
 import { cargarCardCategorias } from "./utils.js";
 import { caratulaDestacada } from "./utils.js";
-import { validateName } from '../validators.js';
+import { validateName } from "../validators.js";
 import { agregarScrollHorizontal } from "./utils.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Simulación de la autenticación. En un caso real, esta lógica sería diferente.
-  const estaLogueado = sessionStorage.getItem('estaLogueado') === 'true';
-  
+document.addEventListener("DOMContentLoaded", () => {
+  const estaLogueado = sessionStorage.getItem("estaLogueado") === "true";
 
-  const loginButton = document.getElementById('inicio');
-  const registerButton = document.getElementById('registro');
-  const logoutButton = document.getElementById('cerrarSesion');
-  const adminButton = document.getElementById('admin');
+  const loginButton = document.getElementById("inicio");
+  const registerButton = document.getElementById("registro");
+  const logoutButton = document.getElementById("cerrarSesion");
+  const adminButton = document.getElementById("admin");
 
   if (estaLogueado) {
-    loginButton.style.display = 'none';
-    registerButton.style.display = 'none';
-    adminButton.style.display = 'block';
-    logoutButton.style.display = 'block';
+    loginButton.style.display = "none";
+    registerButton.style.display = "none";
+    adminButton.style.display = "block";
+    logoutButton.style.display = "block";
   } else {
-    loginButton.style.display = 'block';
-    registerButton.style.display = 'block';
-    adminButton.style.display = 'none';
-    logoutButton.style.display = 'none';
+    loginButton.style.display = "block";
+    registerButton.style.display = "block";
+    adminButton.style.display = "none";
+    logoutButton.style.display = "none";
   }
 
-  // Añadir el evento para el botón de cerrar sesión
-  logoutButton.addEventListener('click', () => {
-    localStorage.setItem('estaLogueado', 'false');
+  logoutButton.addEventListener("click", () => {
+    localStorage.setItem("estaLogueado", "false");
   });
 });
-
 
 const $seccionPeliculasBuscadas = document.getElementById(
   "seccion-peliculas-buscadas"
@@ -47,7 +43,7 @@ const categorias = obtenerCategoriaDeLS();
 peliculas.forEach((pelicula) => {
   if (pelicula.publicada === true && pelicula.tipo === "Pelicula") {
     cargarCardLanzamientos(pelicula);
-  } else if (pelicula.publicada === true && pelicula.tipo === "Serie"){
+  } else if (pelicula.publicada === true && pelicula.tipo === "Serie") {
     cargarCardSeries(pelicula);
   }
 });
@@ -67,13 +63,8 @@ categorias.forEach((categoria) => {
 
   const $peliculasContenedor = document.createElement("div");
   $peliculasContenedor.className = "peliculas-contenedor";
+});
 
- // Función para normalizar cadenas eliminando los acentos
-function normalizar(cadena) {
-  return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
-
-// Filtrado y renderizado de películas por categoría
 const peliculasFiltradas = peliculas.filter(
   (pelicula) => normalizar(pelicula.categoria) === normalizar(categoria.nombre)
 );
@@ -91,21 +82,20 @@ $cargaCategorias.appendChild($article);
 const $formBusqueda = document.getElementById("form-index-peliculas");
 const $inputBusqueda = document.getElementById("input-busqueda-peliculas");
 
-$formBusqueda.addEventListener('submit', (event) => {
+function normalizar(cadena) {
+  return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+$formBusqueda.addEventListener("submit", (event) => {
   event.preventDefault();
 
-
   if (validateName($inputBusqueda)) {
-    // Procesar la búsqueda si es válida
-    console.log('Búsqueda válida:', $inputBusqueda);
-    // Aquí iría la lógica para manejar una búsqueda válida, por ejemplo:
-    // realizarBusqueda(inputBusqueda);
+    console.log("Búsqueda válida:", $inputBusqueda);
   } else {
-    // Mostrar mensaje de error si la búsqueda no es válida
     Swal.fire({
-      icon: 'error',
-      title: 'Título no válido',
-      text: 'Por favor, ingrese un nombre válido.'
+      icon: "error",
+      title: "Título no válido",
+      text: "Por favor, ingrese un nombre válido.",
     });
   }
 });
@@ -120,8 +110,12 @@ $formBusqueda.addEventListener("submit", (e) => {
   if (busqueda !== "") {
     const peliculaFiltrada = peliculas.filter((pelicula) => {
       return (
-        normalizar(pelicula.nombre).toLowerCase().includes(busqueda.toLowerCase()) ||
-        normalizar(pelicula.categoria).toLowerCase().includes(busqueda.toLowerCase())
+        normalizar(pelicula.nombre)
+          .toLowerCase()
+          .includes(busqueda.toLowerCase()) ||
+        normalizar(pelicula.categoria)
+          .toLowerCase()
+          .includes(busqueda.toLowerCase())
       );
     });
 
@@ -139,7 +133,6 @@ $formBusqueda.addEventListener("submit", (e) => {
     $seccionPeliculasBuscadas.appendChild($mensaje);
   }
 });
-});
 
 // Carga de película destacada al body -----------------------------------------------------
 
@@ -149,10 +142,9 @@ peliculas.forEach((pelicula) => {
   }
 });
 
+// Agregado de scroll horizontal----------
 
-
-/*$seccionLanzamientos.forEach((pelicula) => {
+$seccionLanzamientos.forEach((pelicula) => {
   agregarScrollHorizontal(pelicula);
-});*/
-
+});
 
