@@ -63,10 +63,10 @@ categorias.forEach((categoria) => {
 
   const $peliculasContenedor = document.createElement("div");
   $peliculasContenedor.className = "peliculas-contenedor";
-});
 
+// Filtrado y renderizado de películas por categoría
 const peliculasFiltradas = peliculas.filter(
-  (pelicula) => pelicula.categoria === categoria.nombre
+  (pelicula) => normalizar(pelicula.categoria) === normalizar(categoria.nombre)
 );
 
 peliculasFiltradas.forEach((pelicula) => {
@@ -110,18 +110,14 @@ $formBusqueda.addEventListener("submit", (e) => {
   if (busqueda !== "") {
     const peliculaFiltrada = peliculas.filter((pelicula) => {
       return (
-        normalizar(pelicula.nombre)
-          .toLowerCase()
-          .includes(busqueda.toLowerCase()) ||
-        normalizar(pelicula.categoria)
-          .toLowerCase()
-          .includes(busqueda.toLowerCase())
+        normalizar(pelicula.nombre).toLowerCase().includes(busqueda.toLowerCase()) ||
+        normalizar(pelicula.categoria).toLowerCase().includes(busqueda.toLowerCase())
       );
     });
 
     peliculaFiltrada.forEach((pelicula) => {
       const $a = document.createElement("a");
-      $a.href = "./pages/error404.html";
+      $a.href = "#";
       $a.className = "text-light text-decoration-none ms-2 d-block";
       $a.innerText = `${pelicula.nombre} / ${pelicula.categoria}`;
       $seccionPeliculasBuscadas.appendChild($a);
@@ -133,6 +129,8 @@ $formBusqueda.addEventListener("submit", (e) => {
     $seccionPeliculasBuscadas.appendChild($mensaje);
   }
 });
+});
+
 
 // Carga de película destacada al body -----------------------------------------------------
 
