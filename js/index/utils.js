@@ -94,8 +94,8 @@ export const cargarCardSeries = (pelicula) => {
   $playLink.className = "d-flex align-items-center me-2";
 
   const $playBoton = document.createElement("a");
-  $playBoton.href = "#";
-  $playBoton.innerHTML = '<i class="fa-solid fa-circle-play me-2"></i>Reproducir'
+  $playBoton.href = "./pages/detalle.html";
+  $playBoton.innerHTML = '<i class="fa-solid fa-circle-play me-2 btn-play"></i>Reproducir'
 
   $playLink.appendChild($playBoton);
 

@@ -1,4 +1,10 @@
 import { obtenerPeliculaDeLS } from "../utils.js";
+import { cargarPaginaDetalles } from "../detalle/detalle.js";
+import { cargarCardSeries, cargarCardCategorias } from "./utils.js";
+
+cargarPaginaDetalles();
+cargarCardCategorias();
+cargarCardSeries();
 
 document.addEventListener("DOMContentLoaded", () => {
   const botonesPlay = document.querySelectorAll(".btn-play");

@@ -68,7 +68,7 @@ $form.addEventListener('submit', (e) => {
         })
         .then(() => {
           // iv. Redirigir al usuario a la página de admin
-          window.location.assign('/pages/admin.html');
+          window.location.assign('../index.html');
 
           // v.
           // Listo :3

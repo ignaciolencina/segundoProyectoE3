@@ -10,18 +10,22 @@ import { agregarScrollHorizontal } from "./utils.js";
 document.addEventListener('DOMContentLoaded', () => {
   // Simulación de la autenticación. En un caso real, esta lógica sería diferente.
   const estaLogueado = sessionStorage.getItem('estaLogueado') === 'true';
+  
 
   const loginButton = document.getElementById('inicio');
   const registerButton = document.getElementById('registro');
   const logoutButton = document.getElementById('cerrarSesion');
+  const adminButton = document.getElementById('admin');
 
   if (estaLogueado) {
     loginButton.style.display = 'none';
     registerButton.style.display = 'none';
+    adminButton.style.display = 'block';
     logoutButton.style.display = 'block';
   } else {
     loginButton.style.display = 'block';
     registerButton.style.display = 'block';
+    adminButton.style.display = 'none';
     logoutButton.style.display = 'none';
   }
 
@@ -145,7 +149,7 @@ peliculas.forEach((pelicula) => {
   }
 });
 
-const $seccionLanzamientos = document.getElementById("seccion-lanzamientos");
+
 
 /*$seccionLanzamientos.forEach((pelicula) => {
   agregarScrollHorizontal(pelicula);
