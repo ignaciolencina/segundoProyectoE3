@@ -27,8 +27,8 @@
 
     <!-- Link a sweet alerts-->
 
-    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
-    
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Link a CCS Propio c -->
     <link rel="stylesheet" href="../css/commons.css" />
   </head>
@@ -95,7 +95,9 @@
                   <a class="nav-link" href="../index.html">Series</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/categorias.html">Categorías</a>
+                  <a class="nav-link" href="../pages/categorias.html"
+                    >Categorías</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="../pages/admin.html">Mi espacio</a>
@@ -128,10 +130,14 @@
                   <a class="nav-link" href="#">Ayuda</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/error404.html">Dispositivos compatibles</a>
+                  <a class="nav-link" href="../pages/error404.html"
+                    >Dispositivos compatibles</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/error404.html">Cuenta y configuracion</a>
+                  <a class="nav-link" href="../pages/error404.html"
+                    >Cuenta y configuracion</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="../pages/acercaDe.html"
@@ -139,7 +145,9 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/error404.html">Cerrar sesión</a>
+                  <a class="nav-link" href="../pages/error404.html"
+                    >Cerrar sesión</a
+                  >
                 </li>
               </ul>
             </div>
@@ -151,7 +159,11 @@
       <h3 class="pt-3 text-light">¿Necesitas ayuda?</h3>
       <hr />
       <section class="bg-secondary p-3 rounded text-light">
-        <form id="form-ayuda">
+        <form
+          action="https://formsubmit.co/lula_adem@hotmail.com"
+          method="POST"
+          id="form-ayuda"
+        >
           <fieldset class="mb-2">
             <label for="input-nombre-formulario" class="form-label"
               >Nombre completo</label
@@ -161,6 +173,7 @@
               type="text"
               id="input-nombre-formulario"
               class="form-control"
+              name="name"
             />
             <div class="invalid-feedback">
               <span class="badge text-bg-danger">Ingrese un nombre valido</span>
@@ -175,6 +188,7 @@
               type="text"
               id="input-numero-formulario"
               class="form-control"
+              name="email"
             />
             <div class="invalid-feedback">
               <span class="badge text-bg-danger">Ingrese un número valido</span>
@@ -187,6 +201,7 @@
               type="text"
               id="input-email-formulario"
               class="form-control"
+              name="email"
             />
             <div class="invalid-feedback">
               <span class="badge text-bg-danger">Ingrese un email valido</span>
@@ -223,14 +238,18 @@
         </article>
         <article class="row text-center">
           <div class="col-12">
-            <a class="me-2" href="../pages/error404.html">Términos y Aviso de privacidad</a>
+            <a class="me-2" href="../pages/error404.html"
+              >Términos y Aviso de privacidad</a
+            >
             <a href="../pages/error404.html">Envíanos tus comentarios</a>
           </div>
         </article>
         <article class="row text-center">
           <div class="col-12">
             <a href="#">Ayuda</a>
-            <p class="text-light d-inline-block">&copy; 1996 - 2024, Amazon.com, Inc. o sus filiales</p>
+            <p class="text-light d-inline-block">
+              &copy; 1996 - 2024, Amazon.com, Inc. o sus filiales
+            </p>
           </div>
         </article>
       </section>
