@@ -1,6 +1,7 @@
 import { obtenerPeliculaDeLS } from "../utils.js";
 import { obtenerCategoriaDeLS } from "../utils.js";
 import { cargarCardLanzamientos } from "./utils.js";
+import { cargarCardSeries } from "./utils.js";
 import { cargarCardCategorias } from "./utils.js";
 import { caratulaDestacada } from "./utils.js";
 import { agregarScrollHorizontal } from "./utils.js";
@@ -11,11 +12,13 @@ const $seccionPeliculasBuscadas = document.getElementById(
 const peliculas = obtenerPeliculaDeLS();
 const categorias = obtenerCategoriaDeLS();
 
-// Carga de las peliculas/series en la seccion de últimos lanzaminetos ---------------
+// Carga de las peliculas/series  ---------------
 
 peliculas.forEach((pelicula) => {
-  if (pelicula.publicada === true) {
+  if (pelicula.publicada === true && pelicula.tipo === "Pelicula") {
     cargarCardLanzamientos(pelicula);
+  } else if (pelicula.publicada === true && pelicula.tipo === "Serie"){
+    cargarCardSeries(pelicula);
   }
 });
 

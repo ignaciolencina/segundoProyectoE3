@@ -7,7 +7,8 @@
 }
 
 .lanzamientos,
-.peliculas-contenedor {
+.peliculas-contenedor,
+.series {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
@@ -20,13 +21,14 @@
     height: 200px;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px black;
     transition: all 0.2s ease-in-out;
+    transform-origin: center;
     color: #ffffff;
     border: none;
 
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.05);
       height: auto;
     }
   }
@@ -44,7 +46,7 @@
 
   .card-content {
     padding: 16px;
-    background-color: rgb(4, 1, 13);
+    background-color: rgb(0, 0, 0);
     border-radius: 0 0 10px 10px;
     display: none;
   }
@@ -52,7 +54,12 @@
   .reproduccion {
     a {
       text-decoration: none;
+      color: var(--color-Textos);
+      display: flex;
+      align-items: center;
     }
+
+    
 
     .fa-circle-play {
       color: #ffffff;
@@ -91,7 +98,7 @@
   }
 
   .card {
-    width: 270px;
+    width: 400px;
     border: none;
     background-color: transparent;
     top: 100px;
@@ -101,6 +108,9 @@
   .reproduccion {
     a {
       text-decoration: none;
+      color: var(--color-Textos);
+      display: flex;
+      align-items: center;
     }
 
     .fa-circle-play {
@@ -132,7 +142,35 @@
   }
 }
 
+@media (width >= 768px) {
+  .pelicula-destacada {
+    img {
+      height: 500px;
+    }
+    .card {
+      top: 200px;
+      left: 70px;
+    }
 
-.espacioPrueba{
-  height: 600px;
+    h5 {
+      font-size: 3rem;
+    }
+
+    h6 {
+      font-size: 1.5rem;
+    }
+
+    .reproduccion {
+      a{
+        font-size: 1.5rem;
+      }
+      .fa-circle-play {
+        font-size: 70px;
+      }
+      .fa-plus,
+      .fa-circle-info {
+        font-size: 40px;
+      }
+    }
+  }
 }

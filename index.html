@@ -31,46 +31,60 @@
   </head>
   <body>
     <header>
-      <nav class="navbar fixed-top navbar-inicio p-0">
-        <section class="container-fluid mb-1">
-          <button
-            class="navbar-toggler boton-menu"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasMenu"
-            aria-controls="offcanvasMenu"
-            aria-label="Toggle navigation"
-          >
-            Menú
-            <i class="fa-solid fa-angle-right fa-2xs"></i>
-          </button>
-          <a class="navbar-brand" href="#">
-            <img
-              class="logo-navbar"
-              src="./assets/Logo Prime Video Blanco - Sin Sonrisa.png"
-              alt="Logo Prime Video"
-            />
-          </a>
-          <button
-            class="navbar-toggler boton-busqueda"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasBusqueda"
-            aria-controls="offcanvasBusqueda"
-            aria-label="Toggle navigation"
-          >
-            <i class="fa-solid fa-magnifying-glass fa-x1"></i>
-          </button>
-          <button
-            class="navbar-toggler boton-usuario"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasLogin"
-            aria-controls="offcanvasLogin"
-            aria-label="Toggle navigation"
-          >
-            <img src="./assets/Usuario sin Imagen.png" alt="Usuario" />
-          </button>
+      <nav class="navbar fixed-top navbar-inicio py-0">
+        <section class="container-fluid d-flex justify-content-between align-items-center contenido-navbar">
+          <article class="contenedor-boton-menu">
+            <button
+              class="navbar-toggler boton-menu p-0 m-0"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasMenu"
+              aria-controls="offcanvasMenu"
+              aria-label="Toggle navigation"
+            >
+              Menú
+              <i class="fa-solid fa-angle-right fa-2xs"></i>
+            </button>
+          </article>
+          <article>
+            <a class="navbar-brand p-0 m-0" href="#">
+              <img
+                class="logo-navbar"
+                src="./assets/Logo Prime Video Blanco - Sin Sonrisa.png"
+                alt="Logo Prime Video"
+              />
+            </a>
+          </article>
+          <article class="navbar-grande">
+            <a class="active" href="#" >Inicio</a>
+            <a href="./pages/error404.html">Películas</a>
+            <a href="./pages/error404.html">Series</a>
+            <a href="./pages/categorias.html">Categorías</a>
+            <a href="./pages/admin.html">Mi espacio</a>
+          </article>
+          <article class="d-flex align-items-center">
+            <button
+              class="navbar-toggler boton-busqueda p-0 me-3"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasBusqueda"
+              aria-controls="offcanvasBusqueda"
+              aria-label="Toggle navigation"
+            >
+              <i class="fa-solid fa-magnifying-glass fa-x1"></i>
+            </button>
+            <button
+              class="navbar-toggler boton-usuario p-0 me-2"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasLogin"
+              aria-controls="offcanvasLogin"
+              aria-label="Toggle navigation"
+            >
+              <img src="./assets/Usuario sin Imagen.png" alt="Usuario" />
+            </button>
+          </article>
+
           <!-- Parametros boton de Menú -->
           <article
             class="offcanvas offcanvas-start menu-desplegable"
@@ -99,7 +113,9 @@
                   <a class="nav-link" href="#">Series</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./pages/categorias.html">Categorías</a>
+                  <a class="nav-link" href="./pages/categorias.html"
+                    >Categorías</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./pages/admin.html">Mi espacio</a>
@@ -202,11 +218,17 @@
     </header>
     <main>
       <section id="pelicula-destacada" class="pelicula-destacada"></section>
-      <section class="container-fluid text-light ms-3">
+      <section class="container-fluid text-light ms-3 mt-5">
         <h3><span class="palabra-prime">Prime </span>Ultimos lanzamientos</h3>
       </section>
       <section class="container-fluid">
         <article class="lanzamientos" id="seccion-lanzamientos"></article>
+      </section>
+      <section class="container-fluid text-light ms-3 mt-4">
+        <h3><span class="palabra-prime">Prime </span>Series</h3>
+      </section>
+      <section>
+        <article class="series" id="seccion-series"></article>
       </section>
       <section class="container-fluid">
         <article class="categorias" id="seccion-categorias"></article>
@@ -224,14 +246,18 @@
         </article>
         <article class="row text-center">
           <div class="col-12">
-            <a class="me-2" href="./pages/error404.html">Términos y Aviso de privacidad</a>
+            <a class="me-2" href="./pages/error404.html"
+              >Términos y Aviso de privacidad</a
+            >
             <a href="./pages/error404.html">Envíanos tus comentarios</a>
           </div>
         </article>
         <article class="row text-center">
           <div class="col-12">
             <a href="./pages/ayuda.html">Ayuda</a>
-            <p class="text-light d-inline-block">&copy; 1996 - 2024, Amazon.com, Inc. o sus filiales</p>
+            <p class="text-light d-inline-block">
+              &copy; 1996 - 2024, Amazon.com, Inc. o sus filiales
+            </p>
           </div>
         </article>
       </section>

@@ -17,44 +17,50 @@ body {
 header {
   .navbar-inicio {
     background-color: var(--color-fondo);
+    height: 50px;
+  }
+
+  .boton-menu {
+    font-size: 1.1rem;
+    &:focus,
+    :active {
+      outline: none;
+      box-shadow: none;
+    }
+    color: var(--color-Textos);
   }
 
   .navbar-brand {
-    color: var(--color-Textos);
+    .logo-navbar {
+      width: 96px;
+    }
   }
 
-  .navbar-toggler {
-    color: var(--color-Textos);
-  }
+  .boton-busqueda {
+    color: var(--color-hoverTextos);
+    background-color: transparent;
+    border: none;
 
-  .logo-navbar {
-    width: 96px;
+    &:hover {
+      color: var(--color-Textos);
+    }
+
+    &:focus,
+    :active {
+      outline: none;
+      box-shadow: none;
+    }
   }
 
   .boton-usuario {
     background-color: var(--color-fondo);
     img {
       width: 30px;
+      transition: all 0.1s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
-    &:focus,
-    :active {
-      outline: none;
-      box-shadow: none;
-    }
-  }
-
-  .boton-menu {
-    &:focus,
-    :active {
-      outline: none;
-      box-shadow: none;
-    }
-  }
-
-  .boton-busqueda {
-    color: var(--color-Textos);
-    background-color: transparent;
-    border: none;
 
     &:focus,
     :active {
@@ -74,6 +80,27 @@ header {
       }
       &:hover {
         color: var(--color-hoverTextos);
+      }
+      &:focus,
+      :active {
+        color: inherit;
+      }
+    }
+  }
+
+  .navbar-grande {
+    a {
+      text-decoration: none;
+      color: var(--color-hoverTextos);
+      font-size: 1.1rem;
+      margin: 0 15px;
+
+      &:hover {
+        color: var(--color-Textos);
+      }
+
+      &.active {
+        color: var(--color-Textos);
       }
     }
   }
@@ -112,19 +139,45 @@ header {
     outline: none;
     box-shadow: none;
   }
-
-  
 }
 
-.boton-formulario{
+.boton-formulario {
   border-radius: 0.5rem;
   color: var(--color-Textos);
   background-color: transparent;
   border: solid;
   transition: all 0.1s ease-in-out;
 
-  &:hover{
+  &:hover {
     color: var(--color-primeAzul);
     border-color: var(--color-primeAzul);
+  }
+}
+
+@media (width < 880px) {
+  .navbar-grande {
+    display: none;
+  }
+}
+
+@media (width >= 880px) {
+  .contenedor-boton-menu {
+    display: none;
+  }
+
+  .contenido-navbar {
+    width: 80%;
+  }
+}
+
+@media (width >= 992px) {
+  .contenido-navbar {
+    width: 70%;
+  }
+}
+
+@media (width >= 1200px) {
+  .contenido-navbar {
+    width: 60%;
   }
 }
