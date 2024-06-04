@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Grupo 3">
-    <meta name="description" content="Esta es la mejor plataforma de streaming para ver tus series y peliculas favoritas">
-    <meta name="keywords" content="Peliculas, series, prime, videos, amazon">
+    <meta name="author" content="Grupo 3" />
+    <meta
+      name="description"
+      content="Esta es la mejor plataforma de streaming para ver tus series y peliculas favoritas"
+    />
+    <meta name="keywords" content="Peliculas, series, prime, videos, amazon" />
     <title>Admin Categorias</title>
 
-    <link
-      rel="shortcut icon"
-      href="../assets/playPrime.png"
-      type="image/png"
-    />
+    <link rel="shortcut icon" href="../assets/playPrime.png" type="image/png" />
 
     <!-- Link Fontawesome -->
     <script
@@ -37,257 +36,277 @@
     <!-- Link a CCS Propio c -->
     <link rel="stylesheet" href="../css/commons.css" />
   </head>
-<body>
-  <header>
-    <nav class="navbar fixed-top navbar-inicio py-0">
-      <section class="container-fluid d-flex justify-content-between align-items-center contenido-navbar">
-        <article class="contenedor-boton-menu">
-          <button
-            class="navbar-toggler boton-menu p-0 m-0"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasMenu"
-            aria-controls="offcanvasMenu"
-            aria-label="Toggle navigation"
-          >
-            Menú
-            <i class="fa-solid fa-angle-right fa-2xs"></i>
-          </button>
-        </article>
-        <article>
-          <a class="navbar-brand p-0 m-0" href="../index.html">
-            <img
-              class="logo-navbar"
-              src="../assets/Logo Prime Video Blanco - Sin Sonrisa.png"
-              alt="Logo Prime Video"
-            />
-          </a>
-        </article>
-        <article class="navbar-grande">
-          <a class="active" href="../index.html" >Inicio</a>
-          <a href="./error404.html">Películas</a>
-          <a href="./error404.html">Series</a>
-          <a href="./categorias.html">Categorías</a>
-          <a href="./admin.html">Mi espacio</a>
-        </article>
-        <article class="d-flex align-items-center">
-          <button
-            class="navbar-toggler boton-busqueda p-0 me-3 d-none"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasBusqueda"
-            aria-controls="offcanvasBusqueda"
-            aria-label="Toggle navigation"
-          >
-            <i class="fa-solid fa-magnifying-glass fa-x1"></i>
-          </button>
-          <button
-            class="navbar-toggler boton-usuario p-0 me-2"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasLogin"
-            aria-controls="offcanvasLogin"
-            aria-label="Toggle navigation"
-          >
-            <img src="../assets/Usuario sin Imagen.png" alt="Usuario" />
-          </button>
-        </article>
-
-        <!-- Parametros boton de Menú -->
-        <article
-          class="offcanvas offcanvas-start menu-desplegable"
-          tabindex="-1"
-          id="offcanvasMenu"
-          aria-labelledby="offcanvasMenuLabel"
+  <body>
+    <header>
+      <nav class="navbar fixed-top navbar-inicio py-0">
+        <section
+          class="container-fluid d-flex justify-content-between align-items-center contenido-navbar"
         >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menú</h5>
+          <article class="contenedor-boton-menu">
             <button
+              class="navbar-toggler boton-menu p-0 m-0"
               type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link" href="../index.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./error404.html">Películas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./error404.html">Series</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./categorias.html"
-                  >Categorías</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./admin.html">Mi espacio</a>
-              </li>
-            </ul>
-          </div>
-        </article>
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasMenu"
+              aria-controls="offcanvasMenu"
+              aria-label="Toggle navigation"
+            >
+              Menú
+              <i class="fa-solid fa-angle-right fa-2xs"></i>
+            </button>
+          </article>
+          <article>
+            <a class="navbar-brand p-0 m-0" href="../index.html">
+              <img
+                class="logo-navbar"
+                src="../assets/Logo Prime Video Blanco - Sin Sonrisa.png"
+                alt="Logo Prime Video"
+              />
+            </a>
+          </article>
+          <article class="navbar-grande">
+            <a class="active" href="../index.html">Inicio</a>
+            <a href="./error404.html">Películas</a>
+            <a href="./error404.html">Series</a>
+            <a href="./categorias.html">Categorías</a>
+            <a href="./admin.html">Mi espacio</a>
+          </article>
+          <article class="d-flex align-items-center">
+            <button
+              class="navbar-toggler boton-busqueda p-0 me-3 d-none"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasBusqueda"
+              aria-controls="offcanvasBusqueda"
+              aria-label="Toggle navigation"
+            >
+              <i class="fa-solid fa-magnifying-glass fa-x1"></i>
+            </button>
+            <button
+              class="navbar-toggler boton-usuario p-0 me-2"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasLogin"
+              aria-controls="offcanvasLogin"
+              aria-label="Toggle navigation"
+            >
+              <img src="../assets/Usuario sin Imagen.png" alt="Usuario" />
+            </button>
+          </article>
 
-        <!-- Parametros boton de Login -->
-        <article
-          class="offcanvas offcanvas-end menu-desplegable"
-          tabindex="-1"
-          id="offcanvasLogin"
-          aria-labelledby="offcanvasLoginLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasLoginLabel">
-              Mi cuenta
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link" href="./login.html">Iniciar sesion</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./ayuda.html">Ayuda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./error404.html"
-                  >Dispositivos compatibles</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./error404.html"
-                  >Cuenta y configuracion</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./acercaDe.html"
-                  >Sobre nosotros</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link d-none cerrar-sesion" href="./error404.html"
-                  >Cerrar sesión</a
-                >
-              </li>
-            </ul>
-          </div>
-        </article>
+          <!-- Parametros boton de Menú -->
+          <article
+            class="offcanvas offcanvas-start menu-desplegable"
+            tabindex="-1"
+            id="offcanvasMenu"
+            aria-labelledby="offcanvasMenuLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menú</h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./error404.html">Películas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./error404.html">Series</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Categorías</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./admin.html">Mi espacio</a>
+                </li>
+              </ul>
+            </div>
+          </article>
 
-        <!-- Parametros boton de Busqueda -->
-        <article
-          class="offcanvas offcanvas-top o"
-          tabindex="-1"
-          id="offcanvasBusqueda"
-          aria-labelledby="offcanvasBusquedaLabel"
-        >
-          <div class="offcanvas-header header-buscador">
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <form class="d-flex gap-2 w-100" id="form-index-peliculas">
-                  <input
-                    type="text"
-                    class="input-busqueda text-light"
-                    id="input-busqueda-peliculas"
-                    placeholder="  Titulo / Categoría"
-                  />
-                  <button type="submit" class="boton-formulario">
-                    Buscar
-                  </button>
-                </form>
-              </li>
-              <li>
-                <section
-                  id="seccion-peliculas-buscadas"
-                  class="my-4"
-                ></section>
-              </li>
-            </ul>
-          </div>
-        </article>
-      </section>
-    </nav>
-  </header>
+          <!-- Parametros boton de Login -->
+          <article
+            class="offcanvas offcanvas-end menu-desplegable"
+            tabindex="-1"
+            id="offcanvasLogin"
+            aria-labelledby="offcanvasLoginLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasLoginLabel">
+                Mi cuenta
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" href="./login.html">Iniciar sesion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./ayuda.html">Ayuda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./error404.html"
+                    >Dispositivos compatibles</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./error404.html"
+                    >Cuenta y configuracion</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./acercaDe.html">Sobre nosotros</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link d-none cerrar-sesion"
+                    href="./error404.html"
+                    >Cerrar sesión</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Parametros boton de Busqueda -->
+          <article
+            class="offcanvas offcanvas-top o"
+            tabindex="-1"
+            id="offcanvasBusqueda"
+            aria-labelledby="offcanvasBusquedaLabel"
+          >
+            <div class="offcanvas-header header-buscador">
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <form class="d-flex gap-2 w-100" id="form-index-peliculas">
+                    <input
+                      type="text"
+                      class="input-busqueda text-light"
+                      id="input-busqueda-peliculas"
+                      placeholder="  Titulo / Categoría"
+                    />
+                    <button type="submit" class="boton-formulario">
+                      Buscar
+                    </button>
+                  </form>
+                </li>
+                <li>
+                  <section
+                    id="seccion-peliculas-buscadas"
+                    class="my-4"
+                  ></section>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </section>
+      </nav>
+    </header>
 
     <main class="container mt-5 pt-5">
-        <h1 class="text-white">Carga de Categorías</h1>
-        <hr class="bg-white">
-        <section class="bg-dark p-4 rounded">
-            <article id="alert-edicion-categoria" class="alert alert-warning d-none">
-                Atención: estás editando la Categoría <span id="nombre-categoria-edicion"></span>
-            </article>
-            <form id="form-categoria">
-                <fieldset class="mb-3">
-                    <label for="input-nombre-cat" class="form-label text-white">Nombre de la categoría</label>
-                    <input type="text" id="input-nombre-cat" class="form-control" placeholder="Acción, Comedia, Drama, etc.">
-                    <div class="invalid-feedback">
-                        <span class="badge text-bg-danger">Ingrese un nombre válido</span>
-                    </div>
-                </fieldset>
-                <div class="text-end">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <button id="btn-cancelar-cat" type="button" class="btn btn-secondary d-none">Cancelar Edición</button>
-                </div>
-            </form>
-        </section>
+      <h1 class="text-white">Carga de Categorías</h1>
+      <hr class="bg-white" />
+      <section class="bg-dark p-4 rounded">
+        <article
+          id="alert-edicion-categoria"
+          class="alert alert-warning d-none"
+        >
+          Atención: estás editando la Categoría
+          <span id="nombre-categoria-edicion"></span>
+        </article>
+        <form id="form-categoria">
+          <fieldset class="mb-3">
+            <label for="input-nombre-cat" class="form-label text-white"
+              >Nombre de la categoría</label
+            >
+            <input
+              type="text"
+              id="input-nombre-cat"
+              class="form-control"
+              placeholder="Acción, Comedia, Drama, etc."
+            />
+            <div class="invalid-feedback">
+              <span class="badge text-bg-danger">Ingrese un nombre válido</span>
+            </div>
+          </fieldset>
+          <div class="text-end">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button
+              id="btn-cancelar-cat"
+              type="button"
+              class="btn btn-secondary d-none"
+            >
+              Cancelar Edición
+            </button>
+          </div>
+        </form>
+      </section>
 
-        <section class="table-responsive mt-4 ">
-            <table class="table table-dark table-hover">
-                <thead class="text-center">
-                    <tr>
-                        <th>#</th>                        
-                        <th>Categoría</th> 
-                        <th></th>
-                    </tr>
-                </thead>
-                
-                <tbody class="text-center" id="tbody-categorias"></tbody>
-                
-            </table>
-        </section>
+      <section class="table-responsive mt-4">
+        <table class="table table-dark table-hover">
+          <thead class="text-center">
+            <tr>
+              <th>#</th>
+              <th>Categoría</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody class="text-center" id="tbody-categorias"></tbody>
+        </table>
+      </section>
     </main>
 
     <footer id="footerCat">
-        <section class="container-fluid links-footer mt-5">
-          <article class="row text-center">
-            <div class="col-12">
-              <img
-                src="../assets/Logo Prime Video Blanco - Con Sonrisa.png"
-                alt="Logo de Prime Video"
-              />
-            </div>
-          </article>
-          <article class="row text-center">
-            <div class="col-12">
-              <a class="me-2" href="../pages/error404.html">Términos y Aviso de privacidad</a>
-              <a href="#">Envíanos tus comentarios</a>
-            </div>
-          </article>
-          <article class="row text-center">
-            <div class="col-12">
-              <a href="../pages/ayuda.html">Ayuda</a>
-              <p class="text-light d-inline-block">&copy; 1996-2024, Amazon.com, Inc. o sus filiales</p>
-            </div>
-          </article>
-        </section>
-      </footer>
+      <section class="container-fluid links-footer mt-5">
+        <article class="row text-center">
+          <div class="col-12">
+            <img
+              src="../assets/Logo Prime Video Blanco - Con Sonrisa.png"
+              alt="Logo de Prime Video"
+            />
+          </div>
+        </article>
+        <article class="row text-center">
+          <div class="col-12">
+            <a class="me-2" href="./error404.html"
+              >Términos y Aviso de privacidad</a
+            >
+            <a href="./error404.html">Envíanos tus comentarios</a>
+          </div>
+        </article>
+        <article class="row text-center">
+          <div class="col-12">
+            <a href="../pages/ayuda.html">Ayuda</a>
+            <p class="text-light d-inline-block">
+              &copy; 1996-2024, Amazon.com, Inc. o sus filiales
+            </p>
+          </div>
+        </article>
+      </section>
+    </footer>
 
     <script type="module" src="../js/admin/appCategoria.js"></script>
-</body>
+  </body>
 </html>
