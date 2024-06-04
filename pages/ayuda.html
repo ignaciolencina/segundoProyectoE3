@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Grupo 3">
+    <meta name="description" content="Esta es la mejor plataforma de streaming para ver tus series y peliculas favoritas">
+    <meta name="keywords" content="Peliculas, series, prime, videos, amazon">
     <title>Ayuda</title>
+
+    <link
+      rel="shortcut icon"
+      href="../assets/playPrime.png"
+      type="image/png"
+    />
 
     <!-- Link Fontawesome -->
     <script
@@ -25,48 +34,65 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Link a sweet alerts-->
-
-    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
-    
     <!-- Link a CCS Propio c -->
     <link rel="stylesheet" href="../css/commons.css" />
   </head>
   <body>
     <header>
-      <nav class="navbar fixed-top navbar-inicio">
-        <section class="container-fluid">
-          <button
-            class="navbar-toggler boton-menu"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasMenu"
-            aria-controls="offcanvasMenu"
-            aria-label="Toggle navigation"
-          >
-            Menú
-            <i class="fa-solid fa-angle-right fa-2xs"></i>
-          </button>
-          <a class="navbar-brand" href="#">
-            <img
-              class="logo-navbar"
-              src="../assets/Logo Prime Video Blanco - Sin Sonrisa.png"
-              alt="Logo Prime Video"
-            />
-          </a>
-          <button class="boton-busqueda">
-            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-          </button>
-          <button
-            class="navbar-toggler boton-usuario"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasLogin"
-            aria-controls="offcanvasLogin"
-            aria-label="Toggle navigation"
-          >
-            <img src="../assets/Usuario sin Imagen.png" alt="Usuario" />
-          </button>
+      <nav class="navbar fixed-top navbar-inicio py-0">
+        <section class="container-fluid d-flex justify-content-between align-items-center contenido-navbar">
+          <article class="contenedor-boton-menu">
+            <button
+              class="navbar-toggler boton-menu p-0 m-0"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasMenu"
+              aria-controls="offcanvasMenu"
+              aria-label="Toggle navigation"
+            >
+              Menú
+              <i class="fa-solid fa-angle-right fa-2xs"></i>
+            </button>
+          </article>
+          <article>
+            <a class="navbar-brand p-0 m-0" href="#">
+              <img
+                class="logo-navbar"
+                src="../assets/Logo Prime Video Blanco - Sin Sonrisa.png"
+                alt="Logo Prime Video"
+              />
+            </a>
+          </article>
+          <article class="navbar-grande">
+            <a class="active" href="../index.html" >Inicio</a>
+            <a href="./error404.html">Películas</a>
+            <a href="./error404.html">Series</a>
+            <a href="./categorias.html">Categorías</a>
+            <a href="./admin.html">Mi espacio</a>
+          </article>
+          <article class="d-flex align-items-center">
+            <button
+              class="navbar-toggler boton-busqueda p-0 me-3"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasBusqueda"
+              aria-controls="offcanvasBusqueda"
+              aria-label="Toggle navigation"
+            >
+              <i class="fa-solid fa-magnifying-glass fa-x1"></i>
+            </button>
+            <button
+              class="navbar-toggler boton-usuario p-0 me-2"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasLogin"
+              aria-controls="offcanvasLogin"
+              aria-label="Toggle navigation"
+            >
+              <img src="../assets/Usuario sin Imagen.png" alt="Usuario" />
+            </button>
+          </article>
+
           <!-- Parametros boton de Menú -->
           <article
             class="offcanvas offcanvas-start menu-desplegable"
@@ -89,16 +115,18 @@
                   <a class="nav-link" href="../index.html">Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../index.html">Películas</a>
+                  <a class="nav-link" href="./error404.html">Películas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../index.html">Series</a>
+                  <a class="nav-link" href="./error404.html">Series</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/categorias.html">Categorías</a>
+                  <a class="nav-link" href="./categorias.html"
+                    >Categorías</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/admin.html">Mi espacio</a>
+                  <a class="nav-link" href="./admin.html">Mi espacio</a>
                 </li>
               </ul>
             </div>
@@ -125,21 +153,70 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Ayuda</a>
+                  <a class="nav-link" href="./login.html">Iniciar sesion</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/error404.html">Dispositivos compatibles</a>
+                  <a class="nav-link" href="./ayuda.html">Ayuda</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/error404.html">Cuenta y configuracion</a>
+                  <a class="nav-link" href="./error404.html"
+                    >Dispositivos compatibles</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/acercaDe.html"
+                  <a class="nav-link" href="./error404.html"
+                    >Cuenta y configuracion</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./acercaDe.html"
                     >Sobre nosotros</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../pages/error404.html">Cerrar sesión</a>
+                  <a class="nav-link d-none cerrar-sesion" href="./error404.html"
+                    >Cerrar sesión</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Parametros boton de Busqueda -->
+          <article
+            class="offcanvas offcanvas-top o"
+            tabindex="-1"
+            id="offcanvasBusqueda"
+            aria-labelledby="offcanvasBusquedaLabel"
+          >
+            <div class="offcanvas-header header-buscador">
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <form class="d-flex gap-2 w-100" id="form-index-peliculas">
+                    <input
+                      type="text"
+                      class="input-busqueda text-light"
+                      id="input-busqueda-peliculas"
+                      placeholder="  Titulo / Categoría"
+                    />
+                    <button type="submit" class="boton-formulario">
+                      Buscar
+                    </button>
+                  </form>
+                </li>
+                <li>
+                  <section
+                    id="seccion-peliculas-buscadas"
+                    class="my-4"
+                  ></section>
                 </li>
               </ul>
             </div>
