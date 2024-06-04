@@ -66,7 +66,7 @@ categorias.forEach((categoria) => {
 });
 
 const peliculasFiltradas = peliculas.filter(
-  (pelicula) => normalizar(pelicula.categoria) === normalizar(categoria.nombre)
+  (pelicula) => pelicula.categoria === categoria.nombre
 );
 
 peliculasFiltradas.forEach((pelicula) => {
