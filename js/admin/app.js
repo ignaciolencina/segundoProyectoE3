@@ -20,15 +20,15 @@ categoria.forEach((categoria) => {
 
 
 
-/*import { estaLogueado } from '../utils.js';*/
+import { estaLogueado } from '../utils.js';
 
 // ----------------------------------
 // 1. Protección de ruta
 // ----------------------------------
 
-/*if (!estaLogueado()) {
+if (!estaLogueado()) {
   window.location.replace('/pages/login.html');
-}*/
+}
 
 // ---------------------------------
 // 2. Cargar tabla

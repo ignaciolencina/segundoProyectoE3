@@ -26,65 +26,52 @@
     ></script>
 
     <!-- Link a CCS Propio c -->
-    <link rel="stylesheet" href="css/commons.css" />
-    <link rel="stylesheet" href="css/inicio.css" />
+    <link rel="stylesheet" href="../css/commons.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/detallePelicula.css" />
   </head>
   <body>
     <header>
-      <nav class="navbar fixed-top navbar-inicio py-0">
-        <section class="container-fluid d-flex justify-content-between align-items-center contenido-navbar">
-          <article class="contenedor-boton-menu">
-            <button
-              class="navbar-toggler boton-menu p-0 m-0"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasMenu"
-              aria-controls="offcanvasMenu"
-              aria-label="Toggle navigation"
-            >
-              Menú
-              <i class="fa-solid fa-angle-right fa-2xs"></i>
-            </button>
-          </article>
-          <article>
-            <a class="navbar-brand p-0 m-0" href="#">
-              <img
-                class="logo-navbar"
-                src="./assets/Logo Prime Video Blanco - Sin Sonrisa.png"
-                alt="Logo Prime Video"
-              />
-            </a>
-          </article>
-          <article class="navbar-grande">
-            <a class="active" href="#" >Inicio</a>
-            <a href="./pages/error404.html">Películas</a>
-            <a href="./pages/error404.html">Series</a>
-            <a href="./pages/categorias.html">Categorías</a>
-            <a href="./pages/admin.html">Mi espacio</a>
-          </article>
-          <article class="d-flex align-items-center">
-            <button
-              class="navbar-toggler boton-busqueda p-0 me-3"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasBusqueda"
-              aria-controls="offcanvasBusqueda"
-              aria-label="Toggle navigation"
-            >
-              <i class="fa-solid fa-magnifying-glass fa-x1"></i>
-            </button>
-            <button
-              class="navbar-toggler boton-usuario p-0 me-2"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasLogin"
-              aria-controls="offcanvasLogin"
-              aria-label="Toggle navigation"
-            >
-              <img src="./assets/Usuario sin Imagen.png" alt="Usuario" />
-            </button>
-          </article>
-
+      <nav class="navbar fixed-top navbar-inicio p-0">
+        <section class="container-fluid mb-1">
+          <button
+            class="navbar-toggler boton-menu"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasMenu"
+            aria-controls="offcanvasMenu"
+            aria-label="Toggle navigation"
+          >
+            Menú
+            <i class="fa-solid fa-angle-right fa-2xs"></i>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img
+              class="logo-navbar"
+              src="../assets/Logo Prime Video Blanco - Sin Sonrisa.png"
+              alt="Logo Prime Video"
+            />
+          </a>
+          <button
+            class="navbar-toggler boton-busqueda"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasBusqueda"
+            aria-controls="offcanvasBusqueda"
+            aria-label="Toggle navigation"
+          >
+            <i class="fa-solid fa-magnifying-glass fa-x1"></i>
+          </button>
+          <button
+            class="navbar-toggler boton-usuario"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasLogin"
+            aria-controls="offcanvasLogin"
+            aria-label="Toggle navigation"
+          >
+            <img src="../assets/Usuario sin Imagen.png" alt="Usuario" />
+          </button>
           <!-- Parametros boton de Menú -->
           <article
             class="offcanvas offcanvas-start menu-desplegable"
@@ -113,12 +100,10 @@
                   <a class="nav-link" href="#">Series</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./pages/categorias.html"
-                    >Categorías</a
-                  >
+                  <a class="nav-link" href="../pages/categorias.html">Categorías</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./pages/admin.html">Mi espacio</a>
+                  <a class="nav-link" href="../pages/admin.html">Mi espacio</a>
                 </li>
               </ul>
             </div>
@@ -145,10 +130,10 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="./pages/login.html">Iniciar sesion</a>
+                  <a class="nav-link" href="#">Iniciar sesion</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ayuda.html">Ayuda</a>
+                  <a class="nav-link" href="../pages/ayuda.html">Ayuda</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="../pages/error404.html"
@@ -161,12 +146,12 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/acercaDe.html"
+                  <a class="nav-link" href="../pages/acercaDe.html"
                     >Sobre nosotros</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link d-none cerrar-sesion" href="../pages/error404.html"
+                  <a class="nav-link d-none" href="../pages/error404.html"
                     >Cerrar sesión</a
                   >
                 </li>
@@ -216,54 +201,80 @@
         </section>
       </nav>
     </header>
-    <main>
-      <section id="pelicula-destacada" class="pelicula-destacada"></section>
-      <section class="container-fluid text-light ms-3 mt-5">
-        <h3><span class="palabra-prime">Prime </span>Ultimos lanzamientos</h3>
-      </section>
-      <section class="container-fluid">
-        <article class="lanzamientos" id="seccion-lanzamientos"></article>
-      </section>
-      <section class="container-fluid text-light ms-3 mt-4">
-        <h3><span class="palabra-prime">Prime </span>Series</h3>
-      </section>
-      <section>
-        <article class="series" id="seccion-series"></article>
-      </section>
-      <section class="container-fluid">
-        <article class="categorias" id="seccion-categorias"></article>
-      </section>
-    </main>
+    <main class="bg-main">
+        <section id="section-pelicula">
+          <div class="video-container">
+            <iframe
+              class="video-pelicula"
+              src="https://www.youtube.com/watch?v=9Hbd1QeI1Og"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+  
+        <section class="container my-4" id="section-info">
+          <div class="row">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <div class="title-container">
+                <h3 class="title"></h3>
+                <a href="" class="title"><i class="far fa-bookmark fs-5"></i></a>
+              </div>
+              <div class="icon-container">
+                <div class="like-dislike">
+                  <a href="" class="text-decoration-none"
+                    ><i class="far fa-thumbs-up fs-5"></i
+                  ></a>
+                  <a href="" class="text-decoration-none"
+                    ><i class="far fa-thumbs-down fs-5 mx-3"></i
+                  ></a>
+                </div>
+  
+                <a href="" class="text-decoration-none"><i class="fas fa-share-alt"></i></a>
+              </div>
+  
+              <p class="description mt-3">
+                
+              </p>
+            </div>
+            <div class="col-md-6 img-container">
+              <img
+                class="img-detalle-pelicula"
+                src=""
+                alt=""
+              />
+            </div>
+          </div>
+        </section>
+      </main>
     <footer>
       <section class="container-fluid links-footer mt-5">
         <article class="row text-center">
           <div class="col-12">
             <img
-              src="./assets/Logo Prime Video Blanco - Con Sonrisa.png"
+              src="../assets/Logo Prime Video Blanco - Con Sonrisa.png"
               alt="Logo de Prime Video"
             />
           </div>
         </article>
         <article class="row text-center">
           <div class="col-12">
-            <a class="me-2" href="./pages/error404.html"
-              >Términos y Aviso de privacidad</a
-            >
-            <a href="./pages/error404.html">Envíanos tus comentarios</a>
+            <a class="me-2" href="../pages/error404.html">Términos y Aviso de privacidad</a>
+            <a href="../pages/error404.html">Envíanos tus comentarios</a>
           </div>
         </article>
         <article class="row text-center">
           <div class="col-12">
-            <a href="./pages/ayuda.html">Ayuda</a>
-            <p class="text-light d-inline-block">
-              &copy; 1996 - 2024, Amazon.com, Inc. o sus filiales
-            </p>
+            <a href="../pages/ayuda.html">Ayuda</a>
+            <p class="text-light d-inline-block">&copy; 1996 - 2024, Amazon.com, Inc. o sus filiales</p>
           </div>
         </article>
       </section>
     </footer>
-    <script type="module" src="./js/index/app.js"></script>
-    <script type="module" src="./js/index/appDetalle.js"></script>
-    <script type="module" src="./js/logout.js"></script>
+    <script type="module" src="../js/detalle/detalle.js"></script>
+
   </body>
 </html>

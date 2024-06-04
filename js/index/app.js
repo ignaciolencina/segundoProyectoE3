@@ -38,18 +38,23 @@ categorias.forEach((categoria) => {
   const $peliculasContenedor = document.createElement("div");
   $peliculasContenedor.className = "peliculas-contenedor";
 
-  const peliculasFiltradas = peliculas.filter(
-    (pelicula) => pelicula.categoria === categoria.nombre
-  );
+ // Función para normalizar cadenas eliminando los acentos
+function normalizar(cadena) {
+  return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 
-  peliculasFiltradas.forEach((pelicula) => {
-    const $peliculaCard = cargarCardCategorias(pelicula);
-    $peliculasContenedor.appendChild($peliculaCard);
-  });
+// Filtrado y renderizado de películas por categoría
+const peliculasFiltradas = peliculas.filter(
+  (pelicula) => normalizar(pelicula.categoria) === normalizar(categoria.nombre)
+);
 
-  $article.appendChild($peliculasContenedor);
-  $cargaCategorias.appendChild($article);
+peliculasFiltradas.forEach((pelicula) => {
+  const $peliculaCard = cargarCardCategorias(pelicula);
+  $peliculasContenedor.appendChild($peliculaCard);
 });
+
+$article.appendChild($peliculasContenedor);
+$cargaCategorias.appendChild($article);
 
 // Busqueda -------------------------------------------------------------------------------
 
@@ -61,13 +66,13 @@ $formBusqueda.addEventListener("submit", (e) => {
 
   $seccionPeliculasBuscadas.innerHTML = "";
 
-  const busqueda = $inputBusqueda.value.trim();
+  const busqueda = normalizar($inputBusqueda.value.trim());
 
   if (busqueda !== "") {
     const peliculaFiltrada = peliculas.filter((pelicula) => {
       return (
-        pelicula.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
-        pelicula.categoria.toLowerCase().includes(busqueda.toLowerCase())
+        normalizar(pelicula.nombre).toLowerCase().includes(busqueda.toLowerCase()) ||
+        normalizar(pelicula.categoria).toLowerCase().includes(busqueda.toLowerCase())
       );
     });
 
@@ -85,6 +90,7 @@ $formBusqueda.addEventListener("submit", (e) => {
     $seccionPeliculasBuscadas.appendChild($mensaje);
   }
 });
+});
 
 // Carga de película destacada al body -----------------------------------------------------
 
@@ -96,6 +102,8 @@ peliculas.forEach((pelicula) => {
 
 const $seccionLanzamientos = document.getElementById("seccion-lanzamientos");
 
-$seccionLanzamientos.forEach((pelicula) => {
+/*$seccionLanzamientos.forEach((pelicula) => {
   agregarScrollHorizontal(pelicula);
-});
+});*/
+
+
