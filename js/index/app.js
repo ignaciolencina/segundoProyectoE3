@@ -4,8 +4,8 @@ import { cargarCardLanzamientos } from "./utils.js";
 import { cargarCardSeries } from "./utils.js";
 import { cargarCardCategorias } from "./utils.js";
 import { caratulaDestacada } from "./utils.js";
+import { validateName } from '../validators.js';
 import { agregarScrollHorizontal } from "./utils.js";
-
 
 document.addEventListener('DOMContentLoaded', () => {
   // Simulación de la autenticación. En un caso real, esta lógica sería diferente.
@@ -86,6 +86,25 @@ $cargaCategorias.appendChild($article);
 
 const $formBusqueda = document.getElementById("form-index-peliculas");
 const $inputBusqueda = document.getElementById("input-busqueda-peliculas");
+
+$formBusqueda.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+
+  if (validateName($inputBusqueda)) {
+    // Procesar la búsqueda si es válida
+    console.log('Búsqueda válida:', $inputBusqueda);
+    // Aquí iría la lógica para manejar una búsqueda válida, por ejemplo:
+    // realizarBusqueda(inputBusqueda);
+  } else {
+    // Mostrar mensaje de error si la búsqueda no es válida
+    Swal.fire({
+      icon: 'error',
+      title: 'Título no válido',
+      text: 'Por favor, ingrese un nombre válido.'
+    });
+  }
+});
 
 $formBusqueda.addEventListener("submit", (e) => {
   e.preventDefault();
