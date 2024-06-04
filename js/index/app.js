@@ -6,6 +6,32 @@ import { cargarCardCategorias } from "./utils.js";
 import { caratulaDestacada } from "./utils.js";
 import { agregarScrollHorizontal } from "./utils.js";
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Simulación de la autenticación. En un caso real, esta lógica sería diferente.
+  const estaLogueado = sessionStorage.getItem('estaLogueado') === 'true';
+
+  const loginButton = document.getElementById('inicio');
+  const registerButton = document.getElementById('registro');
+  const logoutButton = document.getElementById('cerrarSesion');
+
+  if (estaLogueado) {
+    loginButton.style.display = 'none';
+    registerButton.style.display = 'none';
+    logoutButton.style.display = 'block';
+  } else {
+    loginButton.style.display = 'block';
+    registerButton.style.display = 'block';
+    logoutButton.style.display = 'none';
+  }
+
+  // Añadir el evento para el botón de cerrar sesión
+  logoutButton.addEventListener('click', () => {
+    localStorage.setItem('estaLogueado', 'false');
+  });
+});
+
+
 const $seccionPeliculasBuscadas = document.getElementById(
   "seccion-peliculas-buscadas"
 );

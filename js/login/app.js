@@ -8,6 +8,7 @@ import { Usuario } from './Contacto.js';
 
 if (estaLogueado()) {
   window.location.replace('/pages/admin.html');
+
 }
 
 // ----------------------------------
@@ -55,6 +56,7 @@ $form.addEventListener('submit', (e) => {
         })
       );
 
+
       // iii. Notificar al usuario del éxito
       swal
         .fire({
@@ -75,5 +77,7 @@ $form.addEventListener('submit', (e) => {
       // Credenciales incorrectas
       $alertCredenciales.classList.remove('d-none');
     }
+
+
   }
 });
