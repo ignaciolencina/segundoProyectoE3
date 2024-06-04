@@ -21,7 +21,7 @@ export const cargarCardLanzamientos = (pelicula) => {
   $contenidoArticle.className = "d-flex align-items-center reproduccion";
 
   const $playLink = document.createElement("a");
-  $playLink.href = "./pages/detalle.html";
+  $playLink.href = "#";
   $playLink.classList.add(
     "text-decoration-none",
     "botones-card",
