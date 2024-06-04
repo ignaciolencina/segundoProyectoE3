@@ -78,7 +78,7 @@ $formBusqueda.addEventListener("submit", (e) => {
 
     peliculaFiltrada.forEach((pelicula) => {
       const $a = document.createElement("a");
-      $a.href = "#";
+      $a.href = "./pages/error404.html";
       $a.className = "text-light text-decoration-none ms-2 d-block";
       $a.innerText = `${pelicula.nombre} / ${pelicula.categoria}`;
       $seccionPeliculasBuscadas.appendChild($a);
