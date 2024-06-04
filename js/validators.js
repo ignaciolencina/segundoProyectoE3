@@ -15,7 +15,7 @@ export const validateName = ($field) => {
     }
   
     // Letras
-    const regex = /^[a-zA-ZÁÉÍÓÚáéíóúÜüÑñ0-9\s]+$/;
+    const regex = /^[a-zA-ZÁÉÍÓÚáéíóúÜüÑñ0-9\s.,;:!@#$%^&*()_+=\-{}[\]|<>¿?~`"'/\\]+$/;
     if (!regex.test($field.value)) {
       $field.classList.add('is-invalid');
       $field.classList.remove('is-valid');

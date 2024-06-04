@@ -1,16 +1,16 @@
-import { estaLogueado } from './utils.js';
+import { estaLogueado } from '../utils.js';
 
 // -------------------------------------
 // 1. Seleccionar el boton
 // -------------------------------------
 
-const $botonLogout = document.getElementById('cerrar-sesion');
+const $botonLogout = document.getElementById('cerrarSesion');
 
 // -------------------------------------
 // 2. Mostrar/ocultar el boton
 // -------------------------------------
 
-if (estaLogueado()) {
+if (!estaLogueado()) {
   $botonLogout.classList.remove('d-none');
 }
 
